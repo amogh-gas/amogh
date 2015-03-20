@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+ <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+
+
+<configuration>
+	<settings>
+		<setting name="lazyLoadingEnabled" value="false" />
+		<setting name="cacheEnabled" value="true" />
+		<setting name="localCacheScope" value="SESSION" />
+	</settings>
+
+	<typeAliases>
+		<typeAlias type="org.mahesh.samples.mvc.views.MenuDetailsParams"
+			alias="menuParams" />
+		<typeAlias type="org.mahesh.samples.mvc.views.CustomerParams"
+			alias="customerParams" />
+		<typeAlias type="org.mahesh.samples.mvc.views.ProductParams"
+			alias="productParams" />
+	</typeAliases>
+</configuration>
+
+
+
+
+
+
+
+
+
+
+
+
+

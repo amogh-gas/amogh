@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.mahesh.samples.mvc.persistence.ProductMapper">
+   <resultMap id="resultResources" type="productParams">
+   
+      <result property="id" column="PROD_ID" />
+      <result property="name" column="PROD_NAME" />
+      <result property="type" column="PROD_TYP" />
+      <result property="desc" column="PORDUCT_DESC" />
+      <result property="shortDesc" column="SHORT_DESC" />
+      <result property="unit" column="UNIT" />
+      <result property="under" column="UNDER" />
+      <result property="tariffCode" column="TARIFF_CODE" />      
+   </resultMap>
+	
+   <select id="getProducts" parameterType="productParams" resultMap="resultResources"
+      useCache="true">
+      SELECT SQL_CALC_FOUND_ROWS * FROM 
+		PRODUCT LIMIT #{firstRow}, #{lastRow}      
+   </select>
+   
+   <select id="countTotalProducts" parameterType="productParams" resultType="java.lang.Long"
+         useCache="true">
+      SELECT FOUND_ROWS() AS 'found_rows'
+   </select>
+   
+   <insert id="insertProduct" parameterType="productParams"
+      useGeneratedKeys="true" keyProperty="productParams.id"
+      keyColumn="ID">
+      INSERT INTO PRODUCT
+      (PROD_ID,    PROD_NAME,    PROD_TYP,    PORDUCT_DESC,    SHORT_DESC,    UNIT,
+	    UNDER,    TARIFF_CODE)
+      VALUES
+      (#{id,jdbcType=NUMERIC},
+		#{name,jdbcType=VARCHAR},
+		#{type,jdbcType=VARCHAR},
+		#{desc,jdbcType=VARCHAR},
+		#{shortDesc,jdbcType=VARCHAR},
+		#{unit,jdbcType=VARCHAR},
+		#{under,jdbcType=VARCHAR},
+		#{tariffCode,jdbcType=VARCHAR})
+   </insert>
+</mapper>
