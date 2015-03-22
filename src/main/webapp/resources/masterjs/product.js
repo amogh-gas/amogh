@@ -53,33 +53,45 @@ $(document).ready(function() {
 				rendergridrows: function () {
 					return dataadapter.records;
 				},
-				columns: [
-				          { text: 'id', editable: false, datafield: 'id', hidden: true },
-				          { text: 'PROD_NAME', datafield: 'name', width: "25%" },
-				          { text: 'PROD_TYPE', datafield: 'type', width: "15%" },
-				          { text: 'PORDUCT_DESC', datafield: 'desc', width: "15%" },
-				          { text: 'SHORT_DESC', datafield: 'shortDesc', width: "14%" },
-				          { text: 'UNIT', datafield: 'unit', width: "8%" },
-				          { text: 'UNDER', datafield: 'under', width: "8%" },
-				          { text: 'TARIFF_CODE', datafield: 'tariffCode', width: "10%" },
-				            { text: 'Edit', datafield: 'Edit', columntype: 'button', width: "5%", cellsrenderer: function () {
-				                return "Edit";
-				            }, buttonclick: function (row) {
-				            	// @param row index.
-				            	var data = $('#productDetails').jqxGrid('getrowdata', row);				            	
-				            	$('#saveType').val(CONSTANT.UPDATE);
-				            	for(var type in data) {
-				            		console.log(type);
-				            		if( $('#customWindow #'+type).length )         // use this if you are using id to check
-				            		{
-				            			$('#customWindow #'+type).val(data[type]);
-				            		}
-				            	}
+				columns: 
+					[
+			          { text: 'id', editable: false, datafield: 'id', hidden: true },
+			          { text: 'PROD NAME', datafield: 'name', width: "25%" },
+			          { text: 'PROD TYPE', datafield: 'type', width: "15%" },
+			          { text: 'PORDUCT DESC', datafield: 'desc', width: "15%" },
+			          { text: 'SHORT DESC', datafield: 'shortDesc', width: "14%" },
+			          { text: 'UNIT', datafield: 'unit', width: "8%" },
+			          { text: 'UNDER', datafield: 'under', width: "8%" },
+			          { text: 'TARIFF CODE', datafield: 'tariffCode', width: "10%" },
+			          { text: ' ', datafield: 'Edit', columntype: 'button', width: "5%", cellsrenderer: function () {
+			                return "Edit";
+			            }, buttonclick: function (row) {
+			            	// @param row index.
+			            	var data = $('#productDetails').jqxGrid('getrowdata', row);				            	
+			            	$('#saveType').val(CONSTANT.UPDATE);
+			            	for(var type in data) {
+			            		console.log(type);
+			            		if( $('#customWindow #'+type).length )         // use this if you are using id to check
+			            		{
+			            			$('#customWindow #'+type).val(data[type]);
+			            		}
+			            	}
 
-		            			$('#customWindow').jqxWindow('open');
-				            }
-				            }
-				          ]
+	            			$('#customWindow').jqxWindow('open');
+			            }
+			          },
+			          { text: ' ', datafield: 'Remove', columntype: 'button', width: "5%", cellsrenderer: function () {
+			                return "X";
+			            }, buttonclick: function (row) {
+			            	// @param row index.
+			            	var data = $('#productDetails').jqxGrid('getrowdata', row);				            	
+			            	$('#saveType').val(CONSTANT.REMOVE);
+			            	$('#id').val(data.id);
+			            	$('#name').val(data.name);
+			            	saveProduct();
+			            }
+			          },
+				    ]
 			});
 
 	var nullCheck = function(id) {
@@ -108,9 +120,12 @@ $(document).ready(function() {
 		var dataPersist = $.CommonComponent.serializeObject("customWindowContent");
 		var name = dataPersist.name;
 		var actionType = 'Updated.';
+		
 		if($('#saveType').val() == CONSTANT.SAVE) {
-			delete dataPersist.Id;
+			delete dataPersist.id;
 			actionType = 'Added.';
+		} else if($('#saveType').val() == CONSTANT.REMOVE) {
+			actionType = 'Removed.';
 		}
 		$.ajax({
 			contentType : 'application/json',

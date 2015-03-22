@@ -13,4 +13,6 @@ public interface ProductMapper {
 	void insertProduct(ProductParams params);
 
 	void updateProduct(ProductParams params);
+	
+	void removeProduct(ProductParams params);
 }

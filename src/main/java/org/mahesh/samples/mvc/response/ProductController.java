@@ -84,6 +84,8 @@ public class ProductController {
 		try {
 			if(Constants.UPDATE.equalsIgnoreCase(params.getSaveType())) {
 				productService.updateProduct(params);
+			} else if(Constants.REMOVE.equalsIgnoreCase(params.getSaveType())) {
+				productService.removeProduct(params);
 			} else {
 				productService.insertProduct(params);
 			}

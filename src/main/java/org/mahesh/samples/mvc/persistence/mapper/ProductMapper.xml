@@ -54,4 +54,9 @@
       TARIFF_CODE = #{tariffCode,jdbcType=VARCHAR}
       where PROD_ID = #{id,jdbcType=NUMERIC}
    </update>
+   
+   <delete id="removeProduct" parameterType="map">      
+      DELETE FROM PRODUCT 
+      where PROD_ID = #{id,jdbcType=NUMERIC}
+   </delete>
 </mapper>

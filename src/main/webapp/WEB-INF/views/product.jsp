@@ -83,10 +83,10 @@
 								</td>
 							</tr>
 						</table>                        
-                </div>
-            </div>
-        </div>
-	</div>
+                	</div>
+           		 </div>
+       		 </div>
+		</div>
 	</div>
 	<script type="text/javascript" src="<c:url value="/resources/jquery/1.11.2/jquery-1.11.2.min.js" />"></script>
 	<script type="text/javascript" src="<c:url value="/resources/jquery/jquery.i18n.properties-1.0.9.js" />"></script>

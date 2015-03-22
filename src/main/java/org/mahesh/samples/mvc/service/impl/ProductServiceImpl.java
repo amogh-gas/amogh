@@ -66,5 +66,13 @@ public class ProductServiceImpl implements ProductService {
 		LOGGER.exiting(LOGGING_CLASS_NAME, ": updateProduct");
 		
 	}
+	
+	@Override
+	public void removeProduct(ProductParams params) {
+		LOGGER.entering(LOGGING_CLASS_NAME, ": removeProduct");
+		productMapper.removeProduct(params);
+		LOGGER.exiting(LOGGING_CLASS_NAME, ": removeProduct");
+		
+	}
 
 }
