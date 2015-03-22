@@ -20,7 +20,7 @@
 	<h1>
 		<a href="<c:url value="/" />">amogh</a>
 	</h1>
-	<p>Admin section for Customer Maintenance</p>
+	<p>Admin section for Product Maintenance</p>
 	<div id="tabs">
 		<div id="menu"></div>		
 		<div id="productMenu" style="visibility: hidden;">
@@ -78,8 +78,6 @@
 							<tr><td colspan="2"></td></tr>
 							<tr>
 								<td colspan="2" style="text-align: center;">
-									<!-- <input type="button" value="Save" id="saveButton" /> 
-									<input type="button" value="Cancel" id="cancelButton" /> -->
 									<input type="button" value="Save" style="margin-bottom: 5px;" id="saveButton" />
 									<input type="button" value="Cancel" id="cancelButton" />
 								</td>
@@ -88,65 +86,8 @@
                 </div>
             </div>
         </div>
-		
-		
-		<!-- <p></p>
-		<div style="visibility: hidden;" id="productWindow">
-			<div id="product">
-				<div>
-					<h3>Product</h3>
-				</div>
-				<div>
-					<form id="productForm" action="./">
-						<table class="register-table">
-							<tr>
-								<td>Product Name:</td>
-								<td><input type="text" id="name" class="text-input" /></td>
-							</tr>
-							<tr>
-								<td>Product Type:</td>
-								<td>
-									<div id="productTypeList" class="jqx-dropdownlist-content"></div>
-								</td>
-							</tr>
-							<tr>
-								<td>Product Desc:</td>
-								<td><input type="text" id="description" class="text-input" /></td>
-							</tr>
-							<tr>
-								<td>Short Desc:</td>
-								<td><input type="text" id="shortDesc" class="text-input" /></td>
-							</tr>
-							<tr>
-								<td>Unit:</td>
-								<td><input type="text" id="unit" class="text-input" /></td>
-							</tr>
-							<tr>
-								<td>Under:</td>
-								<td><input type="text" id="under" class="text-input" /></td>
-							</tr>
-							<tr>
-								<td>Tariff Code:</td>
-								<td><input type="text" id="tariffCode" class="text-input" /></td>
-							</tr>
-							<tr>
-								<td></td>
-								<td></td>
-							</tr>
-							<tr>
-								<td colspan="2" style="text-align: center;"><input
-									type="button" value="Save" id="saveButton" /> <input
-									type="button" value="Cancel" id="cancelButton" /> <button id="primaryButton">Primary</button>
-								</td>
-							</tr>
-
-						</table>
-					</form>
-				</div>
-			</div>
-		</div> -->
 	</div>
-
+	</div>
 	<script type="text/javascript" src="<c:url value="/resources/jquery/1.11.2/jquery-1.11.2.min.js" />"></script>
 	<script type="text/javascript" src="<c:url value="/resources/jquery/jquery.i18n.properties-1.0.9.js" />"></script>
 	<script type="text/javascript" src="<c:url value="/resources/json2.js" />"></script>

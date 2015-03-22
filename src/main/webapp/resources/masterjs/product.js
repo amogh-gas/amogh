@@ -66,7 +66,7 @@ $(document).ready(function() {
 				                return "Edit";
 				            }, buttonclick: function (row) {
 				            	// @param row index.
-				            	var data = $('#productDetails').jqxGrid('getrowdata', 0);
+				            	var data = $('#productDetails').jqxGrid('getrowdata', row);				            	
 				            	$('#saveType').val(CONSTANT.UPDATE);
 				            	for(var type in data) {
 				            		console.log(type);
@@ -106,8 +106,11 @@ $(document).ready(function() {
 
 	var saveProduct = function() {
 		var dataPersist = $.CommonComponent.serializeObject("customWindowContent");
+		var name = dataPersist.name;
+		var actionType = 'Updated.';
 		if($('#saveType').val() == CONSTANT.SAVE) {
-			delete dataPersist.productId;
+			delete dataPersist.Id;
+			actionType = 'Added.';
 		}
 		$.ajax({
 			contentType : 'application/json',
@@ -125,9 +128,9 @@ $(document).ready(function() {
 					if(data.result.saveType == CONSTANT.UPDATE) {
 						$('#customWindow').jqxWindow('close');
 					}
-					alert('Product Added.')
+					alert('\' ' + name.toUpperCase() + ' \' ' + actionType );
 				} else {
-					alert('Product not Saved.')
+					alert('\' ' + name.toUpperCase() + ' \' Not Added.');
 				}
 			}
 		});
