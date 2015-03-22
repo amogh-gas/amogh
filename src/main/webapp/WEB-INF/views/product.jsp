@@ -1,5 +1,10 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@include file="imports.jsp" %>
 <%@ page session="false"%>
+<%-- <spring:message htmlEscape="true" code="product.heading" var="pageTitle"/>
+<jsp:include page="../views/header.jspf">
+    <jsp:param name="pageTitle" value="${pageTitle}"/>
+</jsp:include>
+ --%> 
 <html>
 <head>
 <title>amogh</title>
