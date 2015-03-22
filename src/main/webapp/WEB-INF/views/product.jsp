@@ -2,7 +2,7 @@
 <%@ page session="false"%>
 <html>
 <head>
-<title>mahesh-sample</title>
+<title>amogh</title>
 <link href="<c:url value="/resources/form.css" />" rel="stylesheet" type="text/css" />
 <link href="<c:url value="/resources/jqueryui/1.8/themes/base/jquery.ui.core.css" />" rel="stylesheet" type="text/css" />
 <link href="<c:url value="/resources/jqueryui/1.8/themes/base/jquery.ui.theme.css" />"  rel="stylesheet" type="text/css" />
@@ -18,7 +18,7 @@
 </head>
 <body>
 	<h1>
-		<a href="<c:url value="/" />">mahesh-sample</a>
+		<a href="<c:url value="/" />">amogh</a>
 	</h1>
 	<p>Admin section for Customer Maintenance</p>
 	<div id="tabs">
