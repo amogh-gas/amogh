@@ -46,19 +46,19 @@
 							<tr>
 								<td>Product Name:</td>
 								<td>
-									<input type="text" id="name" class="text-input productReset"/>
-									<input id="productId" type="hidden" readonly="true" disabled="disabled" />
+									<input type="text" id="name" class="text-input required productReset"/>
+									<input id="productId" type="hidden" readonly="readonly" disabled="disabled" />
 								</td>
 							</tr>
 							<tr>
 								<td>Product Type:</td>
 								<td>
-									<div id="productTypeList" class="jqx-dropdownlist-content"></div>
+									<div id="type" class="jqx-dropdownlist-content required"></div>
 								</td>
 							</tr>
 							<tr>
 								<td>Product Desc:</td>
-								<td><input type="text" id="description" class="text-input productReset" /></td>
+								<td><input type="text" id="desc" class="text-input productReset" /></td>
 							</tr>
 							<tr>
 								<td>Short Desc:</td>
@@ -66,15 +66,15 @@
 							</tr>
 							<tr>
 								<td>Unit:</td>
-								<td><input type="text" id="unit" class="text-input productReset" /></td>
+								<td><input type="text" id="unit" class="text-input productReset required" /></td>
 							</tr>
 							<tr>
 								<td>Under:</td>
-								<td><input type="text" id="under" class="text-input productReset"/></td>
+								<td><input type="text" id="under" class="text-input productReset required"/></td>
 							</tr>
 							<tr>
 								<td>Tariff Code:</td>
-								<td><input type="text" id="tariffCode" class="text-input productReset"/></td>
+								<td><input type="text" id="tariffCode" class="text-input productReset required"/></td>
 							</tr>
 							<tr><td colspan="2"></td></tr>
 							<tr>
@@ -149,32 +149,12 @@
 	</div>
 
 	<script type="text/javascript" src="<c:url value="/resources/jquery/1.11.2/jquery-1.11.2.min.js" />"></script>
+	<script type="text/javascript" src="<c:url value="/resources/jquery/jquery.i18n.properties-1.0.9.js" />"></script>
 	<script type="text/javascript" src="<c:url value="/resources/json2.js" />"></script>
 	<script type="text/javascript" src="<c:url value="/resources/jqwidgets/jqxcore.js" />"></script>
 	<script type="text/javascript" src="<c:url value="/resources/jqwidgets/jqx-all.js" />"></script>
-	<script type="text/javascript" src="<c:url value="/resources/jqwidgets/jqxexpander.js" />"></script>
-	<script type="text/javascript" src="<c:url value="/resources/jqwidgets/jqxvalidator.js"/>"></script>
-	<script type="text/javascript" src="<c:url value="/resources/jqwidgets/jqxscrollbar.js"/>"></script>
-	<script type="text/javascript" src="<c:url value="/resources/jqwidgets/jqxlistbox.js"/>"></script>
-	<script type="text/javascript" src="<c:url value="/resources/jqwidgets/jqxdropdownlist.js"/>"></script>
-	
-	<script type="text/javascript" src="<c:url value="/resources/jqwidgets/jqxcore.js" />"></script>
-    <script type="text/javascript" src="<c:url value="/resources/jqwidgets/jqxdata.js" />"></script> 
-    <script type="text/javascript" src="<c:url value="/resources/jqwidgets/jqxbuttons.js" />"></script>
-    <script type="text/javascript" src="<c:url value="/resources/jqwidgets/jqxscrollbar.js" />"></script>
-    <script type="text/javascript" src="<c:url value="/resources/jqwidgets/jqxmenu.js" />"></script>
-    <script type="text/javascript" src="<c:url value="/resources/jqwidgets/jqxcheckbox.js" />"></script>
-    <script type="text/javascript" src="<c:url value="/resources/jqwidgets/jqxlistbox.js" />"></script>
-    <script type="text/javascript" src="<c:url value="/resources/jqwidgets/jqxdropdownlist.js" />"></script>
-    <script type="text/javascript" src="<c:url value="/resources/jqwidgets/jqxwindow.js" />"></script>
-    <script type="text/javascript" src="<c:url value="/resources/jqwidgets/jqxscrollbar.js" />"></script>
-    <script type="text/javascript" src="<c:url value="/resources/jqwidgets/jqxpanel.js" />"></script>
-    <%-- <script type="text/javascript" src="<c:url value="/resources/jqwidgets/jqxgrid.js" />"></script>
-    <script type="text/javascript" src="<c:url value="/resources/jqwidgets/jqxgrid.selection.js" />"></script> --%> 
-    <%-- <script type="text/javascript" src="<c:url value="/resources/scripts/demos.js" />"></script> --%>
-	
-	
 	<script type="text/javascript" src="<c:url value="/resources/menus/menus.js" />"></script>
+	<script type="text/javascript" src="<c:url value="/resources/common/common.js" />"></script>
 	<script type="text/javascript" src="<c:url value="/resources/masterjs/product.js" />"></script>
 
 </body>

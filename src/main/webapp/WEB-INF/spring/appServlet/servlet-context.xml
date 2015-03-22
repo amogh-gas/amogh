@@ -44,6 +44,22 @@
 	<!-- Imports user-defined @Controller beans that process client requests -->
 	<beans:import resource="controllers.xml" />
 	
+	<beans:bean id="messageSource"
+      class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+      <beans:property name="basenames">
+         <beans:array>
+            <beans:value>resources/locale/messages</beans:value>
+            <beans:value>resources/locale/errorMessages</beans:value>
+         </beans:array>
+      </beans:property>
+      <beans:property name="defaultEncoding" value="UTF-8" />
+   </beans:bean>
+
+   <beans:bean id="localeChangeInterceptor"
+      class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+      <beans:property name="paramName" value="language" />
+   </beans:bean>
+	
 	<task:annotation-driven />
 	
 </beans:beans>

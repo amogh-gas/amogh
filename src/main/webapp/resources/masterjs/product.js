@@ -43,7 +43,7 @@ $(document).ready(function() {
 	$("#productDetails").jqxGrid(
 			{    
 				width: '99.5%',
-				selectionmode: 'singlecell',
+				selectionmode: 'rowselect',
 				source: dataadapter,
 				theme: theme,
 				editable: false,
@@ -85,16 +85,10 @@ $(document).ready(function() {
 	});
 */
 	/***** Save the Product ****/
-	var theme = 'classic';        
-	$('#saveButton').click(function(pEvent){
-		var data = {};
-		data.name=$('#name').val();
-		data.type=$('#productTypeList').val();
-		data.desc=$('#description').val();
-		data.shortDesc=$('#shortDesc').val();
-		data.unit=$('#unit').val();
-		data.under=$('#under').val();
-		data.tariffCode=$('#tariffCode').val();
+	var theme = 'classic';
+
+	var saveProduct = function() {
+		var dataPersist = $.CommonComponent.serializeObject("customWindow");
 		$.ajax({
 			contentType : 'application/json',
 			dataType: 'json',
@@ -103,7 +97,7 @@ $(document).ready(function() {
 			},
 			type: "POST",
 			url: './product/addProduct',
-			data: JSON.stringify(data),
+			data: JSON.stringify(dataPersist),
 			success: function (data, status, xhr) {
 				if(data.status == 'SUCCESS') {
 					productReset();
@@ -113,6 +107,9 @@ $(document).ready(function() {
 				}
 			}
 		});
+	};
+	$('#saveButton').click(function(pEvent){
+		$('#customWindow').jqxValidator('validate');
 	});
 	
 	var productReset = (function() {
@@ -217,8 +214,20 @@ $(document).ready(function() {
 	                               "OTHERS"
 	                               ];
 	// Create a jqxDropDownList
-	$("#productTypeList").jqxDropDownList({ source: productTypeDropDownList, selectedIndex: 0, dropDownHeight:50, dropDownHorizontalAlignment:'left', width: '145', height: '16'});
+	$("#customWindow #type").jqxDropDownList({ source: productTypeDropDownList, selectedIndex: 0, dropDownHeight:50, dropDownHorizontalAlignment:'left', width: '145', height: '16'});
 	/***** End Drop Down list for product Type*****/
 	
-	
+	/*****Start:Product window validation settings******/
+	var vParams = {};
+	vParams.content = 'customWindow';
+	var newWoFns = function() {};
+	$.CommonComponent.Validation(vParams, new newWoFns());
+	$('#customWindow').on('validationSuccess', function (event) {
+		saveProduct();
+	});
+	$('#customWindow').on('validationError', function (event) {
+		alert('Fill required details.');
+	});
+
+	/*****End:Product window validation settings******/
 });

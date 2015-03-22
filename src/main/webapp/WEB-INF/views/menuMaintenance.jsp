@@ -75,7 +75,7 @@ $(document).ready(function() {
 		},
         beforeprocessing: function (data) {
         	source.totalrecords = data.result.totalRows;
-        },
+        }
         
     };
     
