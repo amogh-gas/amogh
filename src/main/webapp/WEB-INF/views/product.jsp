@@ -72,5 +72,5 @@
       		 </div>
 	</div>
 </div>
-
+<script type="text/javascript" src="<c:url value="/resources/masterjs/product.js" />"></script>
 <jsp:include page="../views/footer.jsp"/>
