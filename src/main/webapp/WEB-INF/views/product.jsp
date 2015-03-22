@@ -26,12 +26,7 @@
 		<div id="productMenu" style="visibility: hidden;">
 			<p>PRODUCTS</p>
 			<input type="button" value="Open" id="showWindowButton" />
-	        <input type="button" value="Close" id="hideWindowButton" style="margin-left: 3px" />
-	        <input type="button" value="Pin" id="pinWindowButton" style="margin-left: 3px" />
-	        <input type="button" value="Unpin" id="unpinWindowButton" style="margin-left: 3px" />
-	        <input type="button" value="Collapse" id="collapseWindowButton" style="margin-left: 3px" />
-	        <input type="button" value="Expand" id="expandWindowButton" style="margin-left: 3px" />
-        	<p></p>
+	        <p></p>
 			<div id="productDetails" style="font-size: 13px; font-family: Verdana;"></div>
 		</div>
 		
@@ -39,15 +34,19 @@
             <div id="customWindow" style="visibility: hidden;">
                 <div id="customWindowHeader">
                     <span id="captureContainer" style="float: left">Product </span>
+                    <input type="button" value="Close" id="hideWindowButton" style="margin-left: 3px" />
+                    <input type="button" value="Collapse" id="collapseWindowButton" style="margin-left: 3px" />
+                    <input type="button" value="Expand" id="expandWindowButton" style="margin-left: 3px" />
                 </div>
                 <div id="customWindowContent" style="overflow: hidden">
+                    <input id="saveType" name="saveType" type="hidden" readonly="readonly"/>
                     <div style="margin: 5px">
                         <table class="register-table">
 							<tr>
 								<td>Product Name:</td>
 								<td>
-									<input type="text" id="name" class="text-input required productReset"/>
-									<input id="productId" type="hidden" readonly="readonly" disabled="disabled" />
+									<input type="text" id="name" name="name" class="text-input required productReset"/>
+									<input id="id" name="id" type="hidden" readonly="readonly" />
 								</td>
 							</tr>
 							<tr>
@@ -58,23 +57,23 @@
 							</tr>
 							<tr>
 								<td>Product Desc:</td>
-								<td><input type="text" id="desc" class="text-input productReset" /></td>
+								<td><input type="text" id="desc" name="desc" class="text-input productReset" /></td>
 							</tr>
 							<tr>
 								<td>Short Desc:</td>
-								<td><input type="text" id="shortDesc" class="text-input productReset"/></td>
+								<td><input type="text" id="shortDesc" name="shortDesc" class="text-input productReset"/></td>
 							</tr>
 							<tr>
 								<td>Unit:</td>
-								<td><input type="text" id="unit" class="text-input productReset required" /></td>
+								<td><input type="text" id="unit"  name="unit" class="text-input productReset required" /></td>
 							</tr>
 							<tr>
 								<td>Under:</td>
-								<td><input type="text" id="under" class="text-input productReset required"/></td>
+								<td><input type="text" id="under" name="under" class="text-input productReset required"/></td>
 							</tr>
 							<tr>
 								<td>Tariff Code:</td>
-								<td><input type="text" id="tariffCode" class="text-input productReset required"/></td>
+								<td><input type="text" id="tariffCode" name="tariffCode" class="text-input productReset required"/></td>
 							</tr>
 							<tr><td colspan="2"></td></tr>
 							<tr>
@@ -155,6 +154,7 @@
 	<script type="text/javascript" src="<c:url value="/resources/jqwidgets/jqx-all.js" />"></script>
 	<script type="text/javascript" src="<c:url value="/resources/menus/menus.js" />"></script>
 	<script type="text/javascript" src="<c:url value="/resources/common/common.js" />"></script>
+	<script type="text/javascript" src="<c:url value="/resources/common/Constants.js" />"></script>
 	<script type="text/javascript" src="<c:url value="/resources/masterjs/product.js" />"></script>
 
 </body>

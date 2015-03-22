@@ -42,7 +42,8 @@ $.CommonComponent = $.CommonComponent ? $.CommonComponent : {};
 		},
 		serializeObject : function(id) {
 			var o = {};
-			var a = $('#' + id).serializeArray();
+			var a = $('#' + id +' :input').serializeArray();
+			console.log(a);
 			$.each(a, function() {
 				if (o[this.name]) {
 					if (!o[this.name].push) {

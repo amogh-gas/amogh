@@ -4,6 +4,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import org.mahesh.samples.mvc.service.ProductService;
+import org.mahesh.samples.mvc.views.Constants;
 import org.mahesh.samples.mvc.views.ProductParams;
 import org.mahesh.samples.mvc.views.ResponseJSON;
 import org.mahesh.samples.mvc.views.ViewsController;
@@ -81,17 +82,21 @@ public class ProductController {
 			@RequestBody final ProductParams params) {
 		final ResponseJSON mResponseJSON = new ResponseJSON();
 		try {
-			productService.insertProduct(params);
+			if(Constants.UPDATE.equalsIgnoreCase(params.getSaveType())) {
+				productService.updateProduct(params);
+			} else {
+				productService.insertProduct(params);
+			}
 			mResponseJSON.setResult(params);
 			mResponseJSON.setStatus("SUCCESS");
 		} catch (Exception e) {
 			LOGGER.log(
 					Level.SEVERE,
-					"There is unknown exception from ViewsController while adding the menu details ",
+					"There is unknown exception from ProductController while adding the product details ",
 					e);
 			mResponseJSON.setStatus("FAILURE");
 			mResponseJSON
-					.setMessage("There is unknown exception from ViewsController while adding the menu details");
+					.setMessage("There is unknown exception from ProductController while adding the product details");
 		}
 
 		return mResponseJSON;

@@ -11,4 +11,6 @@ public interface ProductMapper {
 	Long countTotalProducts(ProductParams menuParams);
 
 	void insertProduct(ProductParams params);
+
+	void updateProduct(ProductParams params);
 }

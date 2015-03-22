@@ -13,6 +13,7 @@ public class ProductParams extends PaginationParams implements Serializable{
 	private String unit;
 	private String under;
 	private String tariffCode;
+	private String saveType;
 	
 	public long getId() {
 		return id;
@@ -68,6 +69,12 @@ public class ProductParams extends PaginationParams implements Serializable{
 				+ ", desc=" + desc + ", shortDesc=" + shortDesc + ", unit="
 				+ unit + ", under=" + under + ", tariffCode=" + tariffCode
 				+ "]";
+	}
+	public String getSaveType() {
+		return saveType;
+	}
+	public void setSaveType(String saveType) {
+		this.saveType = saveType;
 	}
 	
 	

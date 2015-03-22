@@ -61,7 +61,24 @@ $(document).ready(function() {
 				          { text: 'SHORT_DESC', datafield: 'shortDesc', width: "14%" },
 				          { text: 'UNIT', datafield: 'unit', width: "8%" },
 				          { text: 'UNDER', datafield: 'under', width: "8%" },
-				          { text: 'TARIFF_CODE', datafield: 'tariffCode', width: "15%" }
+				          { text: 'TARIFF_CODE', datafield: 'tariffCode', width: "10%" },
+				            { text: 'Edit', datafield: 'Edit', columntype: 'button', width: "5%", cellsrenderer: function () {
+				                return "Edit";
+				            }, buttonclick: function (row) {
+				            	// @param row index.
+				            	var data = $('#productDetails').jqxGrid('getrowdata', 0);
+				            	$('#saveType').val(CONSTANT.UPDATE);
+				            	for(var type in data) {
+				            		console.log(type);
+				            		if( $('#customWindow #'+type).length )         // use this if you are using id to check
+				            		{
+				            			$('#customWindow #'+type).val(data[type]);
+				            		}
+				            	}
+
+		            			$('#customWindow').jqxWindow('open');
+				            }
+				            }
 				          ]
 			});
 
@@ -88,7 +105,10 @@ $(document).ready(function() {
 	var theme = 'classic';
 
 	var saveProduct = function() {
-		var dataPersist = $.CommonComponent.serializeObject("customWindow");
+		var dataPersist = $.CommonComponent.serializeObject("customWindowContent");
+		if($('#saveType').val() == CONSTANT.SAVE) {
+			delete dataPersist.productId;
+		}
 		$.ajax({
 			contentType : 'application/json',
 			dataType: 'json',
@@ -101,6 +121,10 @@ $(document).ready(function() {
 			success: function (data, status, xhr) {
 				if(data.status == 'SUCCESS') {
 					productReset();
+					$('#productDetails').jqxGrid('updatebounddata');
+					if(data.result.saveType == CONSTANT.UPDATE) {
+						$('#customWindow').jqxWindow('close');
+					}
 					alert('Product Added.')
 				} else {
 					alert('Product not Saved.')
@@ -125,15 +149,11 @@ $(document).ready(function() {
         function _addEventListeners() {
             $('#showWindowButton').mousedown(function () {
                 $('#customWindow').jqxWindow('open');
+                productReset();
+                $('#saveType').val(CONSTANT.SAVE);
             });
             $('#hideWindowButton').mousedown(function () {
                 $('#customWindow').jqxWindow('close');
-            });
-            $('#pinWindowButton').mousedown(function () {
-                $('#customWindow').jqxWindow('draggable', false);
-            });
-            $('#unpinWindowButton').mousedown(function () {
-                $('#customWindow').jqxWindow('draggable', true);
             });
             _addCustomButtonsHandlers();
             _addSearchInputEventHandlers();
@@ -180,12 +200,10 @@ $(document).ready(function() {
         function _createElements() {
             $('#showWindowButton').jqxButton({ width: '80px'});
             $('#hideWindowButton').jqxButton({ width: '80px' });
-            $('#pinWindowButton').jqxButton({ width: '80px' });
-            $('#unpinWindowButton').jqxButton({ width: '80px' });
             $('#collapseWindowButton').jqxButton({ width: '80px' });
             $('#expandWindowButton').jqxButton({ width: '80px' });
-            $('#customWindow').jqxWindow({  width: 300,
-                height: 250, resizable: true, autoOpen: false,
+            $('#customWindow').jqxWindow({  width: 360,
+                height: 250, resizable: true, autoOpen: false, isModal: true, 
                 cancelButton: $('#cancelButton'),
                 initContent: function () {
                     $('#saveButton').jqxButton({ width: '80px', disabled: true });
@@ -215,6 +233,10 @@ $(document).ready(function() {
 	                               ];
 	// Create a jqxDropDownList
 	$("#customWindow #type").jqxDropDownList({ source: productTypeDropDownList, selectedIndex: 0, dropDownHeight:50, dropDownHorizontalAlignment:'left', width: '145', height: '16'});
+	
+	$('#customWindow .jqx-dropdownlist-content').each(function(){
+		$(this).children().attr("name",$(this).attr('id')).attr("id",$(this).attr('id'));
+	});
 	/***** End Drop Down list for product Type*****/
 	
 	/*****Start:Product window validation settings******/

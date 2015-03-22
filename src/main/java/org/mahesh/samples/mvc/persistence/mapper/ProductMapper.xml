@@ -42,4 +42,16 @@
 		#{under,jdbcType=VARCHAR},
 		#{tariffCode,jdbcType=VARCHAR})
    </insert>
+   
+   <update id="updateProduct" parameterType="map">
+      UPDATE PRODUCT SET
+      PROD_NAME = #{name,jdbcType=VARCHAR},
+      PROD_TYP = #{type,jdbcType=VARCHAR},
+      PORDUCT_DESC = #{desc,jdbcType=VARCHAR},
+      SHORT_DESC = #{shortDesc,jdbcType=VARCHAR},
+      UNIT = #{unit,jdbcType=VARCHAR},
+      UNDER = #{under,jdbcType=VARCHAR},
+      TARIFF_CODE = #{tariffCode,jdbcType=VARCHAR}
+      where PROD_ID = #{id,jdbcType=NUMERIC}
+   </update>
 </mapper>

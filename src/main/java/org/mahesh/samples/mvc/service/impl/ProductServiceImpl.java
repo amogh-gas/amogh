@@ -59,4 +59,12 @@ public class ProductServiceImpl implements ProductService {
 		return count;
 	}
 
+	@Override
+	public void updateProduct(ProductParams params) {
+		LOGGER.entering(LOGGING_CLASS_NAME, ": updateProduct");
+		productMapper.updateProduct(params);
+		LOGGER.exiting(LOGGING_CLASS_NAME, ": updateProduct");
+		
+	}
+
 }
