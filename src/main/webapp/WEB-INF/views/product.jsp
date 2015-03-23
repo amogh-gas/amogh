@@ -36,7 +36,7 @@
 						<tr>
 							<td>Product Type:</td>
 							<td>
-								<div id="type" class="jqx-dropdownlist-content required"></div>
+								<div id="typeId" class="jqx-dropdownlist-content required"></div>
 							</td>
 						</tr>
 						<tr>

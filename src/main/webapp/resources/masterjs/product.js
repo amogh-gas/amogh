@@ -12,7 +12,7 @@ $(document).ready(function() {
 			datafields: [
 			             { name: 'id' },
 			             { name: 'name' },
-			             { name: 'type' },
+			             { name: 'typeId' },
 			             { name: 'desc' },
 			             { name: 'shortDesc' },
 			             { name: 'unit' },
@@ -57,7 +57,7 @@ $(document).ready(function() {
 					[
 			          { text: 'id', editable: false, datafield: 'id', hidden: true },
 			          { text: 'PROD NAME', datafield: 'name', width: "25%" },
-			          { text: 'PROD TYPE', datafield: 'type', width: "15%" },
+			          { text: 'PROD TYPE', datafield: 'typeId', width: "15%" },
 			          { text: 'PORDUCT DESC', datafield: 'desc', width: "15%" },
 			          { text: 'SHORT DESC', datafield: 'shortDesc', width: "14%" },
 			          { text: 'UNIT', datafield: 'unit', width: "8%" },
@@ -246,8 +246,8 @@ $(document).ready(function() {
     
     /***** Drop Down list for product Type*****/
     var productTypeDropDownList = [
-	                               "GAS",
-	                               "OTHERS"
+	                               "1",
+	                               "2"
 	                               ];
 	// Create a jqxDropDownList
 	$("#customWindow #type").jqxDropDownList({ source: productTypeDropDownList, selectedIndex: 0, dropDownHeight:50, dropDownHorizontalAlignment:'left', width: '145', height: '16'});

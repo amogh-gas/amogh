@@ -7,7 +7,7 @@ public class ProductParams extends PaginationParams implements Serializable{
 	
 	private long id;
 	private String name;
-	private String type;
+	private long typeId;
 	private String desc;
 	private String shortDesc;
 	private String unit;
@@ -27,11 +27,11 @@ public class ProductParams extends PaginationParams implements Serializable{
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getType() {
-		return type;
+	public long getType() {
+		return typeId;
 	}
-	public void setType(String type) {
-		this.type = type;
+	public void setType(long typeId) {
+		this.typeId = typeId;
 	}
 	public String getDesc() {
 		return desc;
@@ -65,7 +65,7 @@ public class ProductParams extends PaginationParams implements Serializable{
 	}
 	@Override
 	public String toString() {
-		return "ProductParams [id=" + id + ", name=" + name + ", type=" + type
+		return "ProductParams [id=" + id + ", name=" + name + ", typeId=" + typeId
 				+ ", desc=" + desc + ", shortDesc=" + shortDesc + ", unit="
 				+ unit + ", under=" + under + ", tariffCode=" + tariffCode
 				+ "]";

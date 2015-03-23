@@ -39,12 +39,21 @@ create table CUSTOMER  (
    SECOND               varchar(1),
    constraint PK_CUST primary key (CUST_ID));
 
+drop table if exists PRODUCT_TYPE;
+
+create table PRODUCT_TYPE  (
+   TYPE_ID              INT    AUTO_INCREMENT ,
+   TYPE_NAME            VARCHAR(100)                       not null,
+   TYPE_DESC         	VARCHAR(200)                       not null,  
+constraint PK_TYPE primary key (TYPE_ID)
+   );   
+
 drop table if exists PRODUCT;
 
 create table PRODUCT  (
    PROD_ID              INT    AUTO_INCREMENT ,
    PROD_NAME            VARCHAR(100)                       not null,
-   PROD_TYP            VARCHAR(20)                        not null,
+   PROD_TYPE_ID         INT				                   not null,
    PORDUCT_DESC         VARCHAR(200)                       not null,
    SHORT_DESC           VARCHAR(10)                        not null,
    UNIT                 VARCHAR(5)                         not null,
@@ -106,6 +115,7 @@ create table SUPPLIER  (
 );
 
 
+
 Insert into MENU_DETAILS (MENU_PK,MENU_DESC,PARENT_MENU_ID,MENU_URL) values (1,'Master','-1','./customerMain');
 Insert into MENU_DETAILS (MENU_PK,MENU_DESC,PARENT_MENU_ID,MENU_URL) values (2,'Sales','-1','./salesMain');
 Insert into MENU_DETAILS (MENU_PK,MENU_DESC,PARENT_MENU_ID,MENU_URL) values (3,'Purchases','-1','./purchaseMain');
@@ -117,5 +127,7 @@ Insert into MENU_DETAILS (MENU_PK,MENU_DESC,PARENT_MENU_ID,MENU_URL) values (102
 Insert into MENU_DETAILS (MENU_PK,MENU_DESC,PARENT_MENU_ID,MENU_URL) values (103,'Rate Mastar','1','./rate');
 Insert into MENU_DETAILS (MENU_PK,MENU_DESC,PARENT_MENU_ID,MENU_URL) values (104,'Supplier Mastar','1','./supplier');
 
-
+Insert into PRODUCT_TYPE (TYPE_ID,TYPE_NAME,TYPE_DESC) values (1,'GAS','Gas Type');
+Insert into PRODUCT_TYPE (TYPE_ID,TYPE_NAME,TYPE_DESC) values (2,'OIL','OIL Type');
+Insert into PRODUCT_TYPE (TYPE_ID,TYPE_NAME,TYPE_DESC) values (3,'OTHERS','Other');
 

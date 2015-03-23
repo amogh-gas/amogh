@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.mahesh.samples.mvc.persistence.ProductTypeMapper">
+   <resultMap id="resultResources" type="productTypeParams">
+   
+      <result property="id" column="TYPE_ID" />
+      <result property="name" column="TYPE_NAME" />
+      <result property="desc" column="TYPE_DESC" />            
+   </resultMap>
+	
+   <select id="getProductTypes" parameterType="productTypeParams" resultMap="resultResources"
+      useCache="true">
+      SELECT SQL_CALC_FOUND_ROWS * FROM 
+		PRODUCT_TYPE LIMIT #{firstRow}, #{lastRow}      
+   </select>
+   
+   <select id="countTotalProductTypes" parameterType="productTypeParams" resultType="java.lang.Long"
+         useCache="true">
+      SELECT FOUND_ROWS() AS 'found_rows'
+   </select>
+</mapper>
