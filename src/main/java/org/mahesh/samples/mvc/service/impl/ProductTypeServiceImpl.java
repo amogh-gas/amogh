@@ -49,4 +49,12 @@ public class ProductTypeServiceImpl implements ProductTypeService {
 		LOGGER.exiting(LOGGING_CLASS_NAME, ": countTotalProductTypes");
 		return count;
 	}
+
+	@Override
+	public List<ProductTypeParams> getAllProductTypes() {
+		LOGGER.entering(LOGGING_CLASS_NAME, ": getAllProductTypes");
+		List<ProductTypeParams> list = productTypeMapper.getAllProductTypes();
+		LOGGER.exiting(LOGGING_CLASS_NAME, ": getAllProductTypes");
+		return list;
+	}
 }

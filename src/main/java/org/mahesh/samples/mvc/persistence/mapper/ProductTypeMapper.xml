@@ -20,4 +20,10 @@
          useCache="true">
       SELECT FOUND_ROWS() AS 'found_rows'
    </select>
+   
+   <select id="getAllProductTypes" resultMap="resultResources"
+      useCache="true">
+      SELECT * FROM 
+		PRODUCT_TYPE      
+   </select>
 </mapper>

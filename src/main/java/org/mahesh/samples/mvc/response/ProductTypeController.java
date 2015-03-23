@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-@RequestMapping(value="/productType", method=RequestMethod.GET)
+@RequestMapping(value = "/productType", method = RequestMethod.GET)
 public class ProductTypeController {
 
 	/**
@@ -44,7 +44,7 @@ public class ProductTypeController {
 	public final ResponseJSON getProducts(
 			@RequestBody final ProductTypeParams productTypeParams) {
 		final ResponseJSON mResponseJSON = new ResponseJSON();
-		try {			
+		try {
 			if (productTypeParams.getPagenum() != null
 					&& productTypeParams.getPagesize() != null) {
 				productTypeParams.setRows(productTypeService
@@ -54,6 +54,26 @@ public class ProductTypeController {
 				mResponseJSON.setResult(productTypeParams);
 				mResponseJSON.setStatus("SUCCESS");
 			}
+		} catch (Exception e) {
+			LOGGER.log(
+					Level.SEVERE,
+					"There is unknown exception from ProductTypeController while getting the product type details ",
+					e);
+			mResponseJSON.setStatus("FAILURE");
+			mResponseJSON
+					.setMessage("There is unknown exception from ProductTypeController while getting the product type details");
+		}
+
+		return mResponseJSON;
+	}
+
+	@RequestMapping(value = "/getAllProductTypes", method = RequestMethod.POST)
+	@ResponseBody
+	public final ResponseJSON getAllProducts() {
+		final ResponseJSON mResponseJSON = new ResponseJSON();
+		try {
+			mResponseJSON.setResult(productTypeService.getAllProductTypes());
+			mResponseJSON.setStatus("SUCCESS");
 		} catch (Exception e) {
 			LOGGER.log(
 					Level.SEVERE,

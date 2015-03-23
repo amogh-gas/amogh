@@ -8,5 +8,7 @@ public interface ProductTypeService {
 
 	List<ProductTypeParams> getProductTypes(ProductTypeParams params);
 
-	Long countTotalProductTypes(ProductTypeParams params);	
+	Long countTotalProductTypes(ProductTypeParams params);
+
+	List<ProductTypeParams> getAllProductTypes();	
 }

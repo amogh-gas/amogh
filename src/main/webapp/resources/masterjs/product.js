@@ -57,9 +57,9 @@ $(document).ready(function() {
 					[
 			          { text: 'id', editable: false, datafield: 'id', hidden: true },
 			          { text: 'PROD NAME', datafield: 'name', width: "25%" },
-			          { text: 'PROD TYPE', datafield: 'typeId', width: "15%" },
-			          { text: 'PORDUCT DESC', datafield: 'desc', width: "15%" },
-			          { text: 'SHORT DESC', datafield: 'shortDesc', width: "14%" },
+			          { text: 'PROD TYPE', datafield: 'typeId', width: "13%" },
+			          { text: 'PORDUCT DESC', datafield: 'desc', width: "13%" },
+			          { text: 'SHORT DESC', datafield: 'shortDesc', width: "13%" },
 			          { text: 'UNIT', datafield: 'unit', width: "8%" },
 			          { text: 'UNDER', datafield: 'under', width: "8%" },
 			          { text: 'TARIFF CODE', datafield: 'tariffCode', width: "10%" },
@@ -220,8 +220,8 @@ $(document).ready(function() {
             $('#hideWindowButton').jqxButton({ width: '80px' });
             $('#collapseWindowButton').jqxButton({ width: '80px' });
             $('#expandWindowButton').jqxButton({ width: '80px' });
-            $('#customWindow').jqxWindow({  width: 360,
-                height: 250, resizable: true, autoOpen: false, isModal: true, 
+            $('#customWindow').jqxWindow({  width: '38%',
+                height: '50%', resizable: true, autoOpen: false, isModal: true, 
                 cancelButton: $('#cancelButton'),
                 initContent: function () {
                     $('#saveButton').jqxButton({ width: '80px', disabled: true });
@@ -245,12 +245,30 @@ $(document).ready(function() {
     
     
     /***** Drop Down list for product Type*****/
+ // prepare the data
+	var source =
+	{
+		datatype: "json",
+		datafields: [
+		{ name: 'id'},
+		{ name: 'name'},
+		{ name: 'desc'},
+		],
+		url: './productType/getAllProductTypes',
+		beforeSend: function(req) { 
+			req.setRequestHeader(header, token);
+		},
+		type: "POST",
+		async: false
+	};
+	var dataAdapter = new $.jqx.dataAdapter(source);
     var productTypeDropDownList = [
 	                               "1",
 	                               "2"
 	                               ];
 	// Create a jqxDropDownList
-	$("#customWindow #type").jqxDropDownList({ source: productTypeDropDownList, selectedIndex: 0, dropDownHeight:50, dropDownHorizontalAlignment:'left', width: '145', height: '16'});
+	$("#customWindow #typeId").jqxDropDownList({ source: dataAdapter, selectedIndex: 0, dropDownHeight:100, dropDownHorizontalAlignment:'left', width: '98%', height: '26',displayMember: 'name',
+		valueMember: 'id'});
 	
 	$('#customWindow .jqx-dropdownlist-content').each(function(){
 		$(this).children().attr("name",$(this).attr('id')).attr("id",$(this).attr('id'));

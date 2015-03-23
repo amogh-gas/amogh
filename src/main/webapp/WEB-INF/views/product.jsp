@@ -16,7 +16,7 @@
 	
 	<div id="mainDemoContainer">
            <div id="customWindow" style="visibility: hidden;">
-               <div id="customWindowHeader">
+               <div id="customWindowHeader" style="width:99.2%!important;">
                    <span id="captureContainer" style="float: left">Product </span>
                    <input type="button" value="Close" id="hideWindowButton" style="margin-left: 3px" />
                    <input type="button" value="Collapse" id="collapseWindowButton" style="margin-left: 3px" />
