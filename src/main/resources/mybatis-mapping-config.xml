@@ -17,6 +17,8 @@
 			alias="customerParams" />
 		<typeAlias type="org.mahesh.samples.mvc.views.ProductParams"
 			alias="productParams" />
+		<typeAlias type="org.mahesh.samples.mvc.views.ProductTypeParams"
+			alias="productTypeParams" />
 	</typeAliases>
 </configuration>
 
