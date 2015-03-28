@@ -7,7 +7,7 @@
    
       <result property="id" column="PROD_ID" />
       <result property="name" column="PROD_NAME" />
-      <result property="typeId" column="PROD_TYPE_ID" />
+      <result property="typeId" column="PROD_TYP" />
       <result property="desc" column="PORDUCT_DESC" />
       <result property="shortDesc" column="SHORT_DESC" />
       <result property="unit" column="UNIT" />
@@ -46,7 +46,7 @@
    <update id="updateProduct" parameterType="map">
       UPDATE PRODUCT SET
       PROD_NAME = #{name,jdbcType=VARCHAR},
-      PROD_TYPE_ID = #{typeId,jdbcType=NUMERIC},
+      PROD_TYP = #{typeId,jdbcType=NUMERIC},
       PORDUCT_DESC = #{desc,jdbcType=VARCHAR},
       SHORT_DESC = #{shortDesc,jdbcType=VARCHAR},
       UNIT = #{unit,jdbcType=VARCHAR},

@@ -6,7 +6,9 @@
 </jsp:include>
 
 <div id="tabs">
-	<div id="menu"></div>		
+<div class="wrapper row2">
+  <div class="rounded">
+	
 	<div id="productMenu" style="visibility: hidden;">
 		<p>PRODUCTS</p>
 		<input type="button" value="Open" id="showWindowButton" />
@@ -16,11 +18,8 @@
 	
 	<div id="mainDemoContainer">
            <div id="customWindow" style="visibility: hidden;">
-               <div id="customWindowHeader" style="width:99.2%!important;">
+               <div id="customWindowHeader" style="width:98%!important;">
                    <span id="captureContainer" style="float: left">Product </span>
-                   <input type="button" value="Close" id="hideWindowButton" style="margin-left: 3px" />
-                   <input type="button" value="Collapse" id="collapseWindowButton" style="margin-left: 3px" />
-                   <input type="button" value="Expand" id="expandWindowButton" style="margin-left: 3px" />
                </div>
                <div id="customWindowContent" style="overflow: hidden">
                    <input id="saveType" name="saveType" type="hidden" readonly="readonly"/>
@@ -36,7 +35,7 @@
 						<tr>
 							<td>Product Type:</td>
 							<td>
-								<div id="typeId" class="jqx-dropdownlist-content required"></div>
+								<div id="typeId" class="rounded jqx-dropdownlist-content required"></div>
 							</td>
 						</tr>
 						<tr>
@@ -62,8 +61,8 @@
 						<tr><td colspan="2"></td></tr>
 						<tr>
 							<td colspan="2" style="text-align: center;">
-								<input type="button" value="Save" style="margin-bottom: 5px;" id="saveButton" />
-								<input type="button" value="Cancel" id="cancelButton" />
+								<input type="button" value="Cancel" id="cancelButton" style="float:right;margin-bottom: 5px;"/>
+								<input type="button" value="Save" style="float:right;margin-bottom: 5px;" id="saveButton" />
 							</td>
 						</tr>
 					</table>                        
@@ -71,6 +70,8 @@
           		 </div>
       		 </div>
 	</div>
+</div>
+</div>
 </div>
 <script type="text/javascript" src="<c:url value="/resources/masterjs/product.js" />"></script>
 <jsp:include page="../views/footer.jsp"/>

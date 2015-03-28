@@ -5161,3 +5161,6 @@ ol li .jqx-listmenu-item-label:before
     background-image: url('images/loader-small.gif');
     background-repeat: no-repeat;
 }
+.jqx-menu-item {
+	color: black; 
+}

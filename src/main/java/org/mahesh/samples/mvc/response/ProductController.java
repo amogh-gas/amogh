@@ -22,7 +22,7 @@ public class ProductController {
 	/**
 	 * Logger Name for this class.
 	 */
-	private static final String LOGGING_CLASS_NAME = ViewsController.class
+	private static final String LOGGING_CLASS_NAME = ProductController.class
 			.getName();
 
 	/**

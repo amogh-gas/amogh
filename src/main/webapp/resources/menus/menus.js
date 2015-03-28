@@ -103,7 +103,7 @@ MvcUtil = {};
 	         	// perform Data Binding.
 	            dataAdapter.dataBind();
 	            var records = dataAdapter.getRecordsHierarchy('id', 'parentId', 'items', [{ name: 'menuDesc', map: 'label'}]);
-	            $('#menu').jqxMenu({ source: records, height: 30,  width: '100%' });
+	            $('#menu').jqxMenu({ theme: CONSTANT.THEME, source: records, height: 30,  width: '100%' });
 	            $("#menu").on('itemclick', function (event) {
 	            	console.log( dataAdapter.recordids[event.args.id].menuUrl);
 	            	window.location.href=dataAdapter.recordids[event.args.id].menuUrl;
@@ -114,4 +114,7 @@ MvcUtil = {};
 	            
 	        }
 	    });
+		var notificationWidth = 300;
+		$("#wrongNotification").jqxNotification({ width: notificationWidth, position: "top-right", autoOpen: false, closeOnClick: true, autoClose: true, template: "error" });
+
 	});

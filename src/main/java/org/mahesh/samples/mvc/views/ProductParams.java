@@ -27,10 +27,10 @@ public class ProductParams extends PaginationParams implements Serializable{
 	public void setName(String name) {
 		this.name = name;
 	}
-	public long getType() {
+	public long getTypeId() {
 		return typeId;
 	}
-	public void setType(long typeId) {
+	public void setTypeId(long typeId) {
 		this.typeId = typeId;
 	}
 	public String getDesc() {

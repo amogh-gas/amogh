@@ -4,7 +4,6 @@ $(document).ready(function() {
 	var header = $("meta[name='_csrf_header']").attr("content");
 
 	/******** Retrieve Code over ******/
-	var theme = 'classic';
 	var source =
 	{		
 			contentType : 'application/json',
@@ -45,7 +44,7 @@ $(document).ready(function() {
 				width: '99.5%',
 				selectionmode: 'rowselect',
 				source: dataadapter,
-				theme: theme,
+				theme: CONSTANT.THEME,
 				editable: false,
 				autoheight: true,
 				pageable: true,
@@ -114,8 +113,6 @@ $(document).ready(function() {
 	});
 */
 	/***** Save the Product ****/
-	var theme = 'classic';
-
 	var saveProduct = function() {
 		var dataPersist = $.CommonComponent.serializeObject("customWindowContent");
 		var name = dataPersist.name;
@@ -127,6 +124,7 @@ $(document).ready(function() {
 		} else if($('#saveType').val() == CONSTANT.REMOVE) {
 			actionType = 'Removed.';
 		}
+		console.log(JSON.stringify(dataPersist));
 		$.ajax({
 			contentType : 'application/json',
 			dataType: 'json',
@@ -173,24 +171,9 @@ $(document).ready(function() {
             $('#hideWindowButton').mousedown(function () {
                 $('#customWindow').jqxWindow('close');
             });
-            _addCustomButtonsHandlers();
             _addSearchInputEventHandlers();
         };
-        function _addCustomButtonsHandlers() {
-            $('#pinButton').mousedown(function () {
-                if ($('#customWindow').jqxWindow('draggable')) {
-                    $('#customWindow').jqxWindow('draggable', false);
-                } else {
-                    $('#customWindow').jqxWindow('draggable', true);
-                }
-            });
-            $('#collapseWindowButton').mousedown(function () {
-                $('#customWindow').jqxWindow('collapse');
-            });
-            $('#expandWindowButton').mousedown(function () {
-                $('#customWindow').jqxWindow('expand');
-            });
-        };
+
         function _addSearchInputEventHandlers() {
             $('#name').keydown(function () {
                 _searchButtonHandle();
@@ -216,12 +199,9 @@ $(document).ready(function() {
             }
         };
         function _createElements() {
-            $('#showWindowButton').jqxButton({ width: '80px'});
-            $('#hideWindowButton').jqxButton({ width: '80px' });
-            $('#collapseWindowButton').jqxButton({ width: '80px' });
-            $('#expandWindowButton').jqxButton({ width: '80px' });
-            $('#customWindow').jqxWindow({  width: '38%',
-                height: '50%', resizable: true, autoOpen: false, isModal: true, 
+            $('#showWindowButton').jqxButton({ width: '80px',theme:CONSTANT.THEME});
+            $('#customWindow').jqxWindow({  showCollapseButton: true,theme:CONSTANT.THEME,width: '26%',
+                height: '45%', resizable: true, autoOpen: false, isModal: true, 
                 cancelButton: $('#cancelButton'),
                 initContent: function () {
                     $('#saveButton').jqxButton({ width: '80px', disabled: true });
@@ -229,6 +209,9 @@ $(document).ready(function() {
                 }
             });
         };
+        $('#customWindow').on('close', function(){
+            $('.jqx-validator-hint').remove();
+        });
         return {
             init: function () {
                 _createElements();
@@ -262,12 +245,8 @@ $(document).ready(function() {
 		async: false
 	};
 	var dataAdapter = new $.jqx.dataAdapter(source);
-    var productTypeDropDownList = [
-	                               "1",
-	                               "2"
-	                               ];
 	// Create a jqxDropDownList
-	$("#customWindow #typeId").jqxDropDownList({ source: dataAdapter, selectedIndex: 0, dropDownHeight:100, dropDownHorizontalAlignment:'left', width: '98%', height: '26',displayMember: 'name',
+	$("#customWindow #typeId").jqxDropDownList({ theme:CONSTANT.THEME,source: dataAdapter, selectedIndex: 0, dropDownHeight:100, dropDownHorizontalAlignment:'left', width: '97%', height: '26',displayMember: 'name',
 		valueMember: 'id'});
 	
 	$('#customWindow .jqx-dropdownlist-content').each(function(){
@@ -284,7 +263,7 @@ $(document).ready(function() {
 		saveProduct();
 	});
 	$('#customWindow').on('validationError', function (event) {
-		alert('Fill required details.');
+		$("#wrongNotification").jqxNotification("open");
 	});
 
 	/*****End:Product window validation settings******/
