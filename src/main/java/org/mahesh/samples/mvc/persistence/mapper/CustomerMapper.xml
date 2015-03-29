@@ -3,44 +3,96 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="org.mahesh.samples.mvc.persistence.CustomerMapper">
-   <resultMap id="resultResources" type="customerParams">
-   
-      <result property="id" column="ID" />
-      <result property="customerName" column="CUSTOMER_NAME" />
-      <result property="customerEmail" column="CUSTOMER_EMAIL" />
-      
+   <resultMap id="resultResources" type="CustomerParams">
+		<result property="id" column="CUST_ID" />
+		<result property="name" column="CUST_NAME" />
+		<result property="address" column="ADDR" />
+		<result property="area" column="AREA" />
+		<result property="state" column="STATE" />
+		<result property="email" column="EMAIL" />
+		<result property="phone" column="PHONE" />
+		<result property="priMobile" column="PRI_MOBILE" />
+		<result property="secMobile" column="SEC_MOBILE" />
+		<result property="contactPerson1" column="CONTACT_PERSON1" />
+		<result property="contactPerson2" column="CONTACT_PERSON2" />
+		<result property="tinNum" column="TIN_NUM" />
+		<result property="cstNum" column="CST_NUM" />
+		<result property="panNum" column="PAN_NUM" />
+		<result property="eCCNum" column="ECC_NUM" />
+		<result property="holdingAdvice" column="HOLDING_ADVICE" />
+		<result property="creditDays" column="CREDIT_DAYS" />
+		<result property="maxCylinder" column="MAX_CYLINDER" />
+		<result property="minCylinder" column="MIN_CYLINDER" />
+		<result property="second" column="SECOND" />  
    </resultMap>
-
-   <select id="getCustomers" parameterType="customerParams" resultMap="resultResources"
+	
+   <select id="getCustomers" parameterType="CustomerParams" resultMap="resultResources"
       useCache="true">
-      SELECT  * FROM 
-		CUSTOMER 
+      SELECT SQL_CALC_FOUND_ROWS * FROM 
+		CUSTOMER LIMIT #{firstRow}, #{lastRow}      
    </select>
-   <insert id="insertCustomer" parameterType="customerParams"
-      useGeneratedKeys="true" keyProperty="customerParams.id"
+   
+   <select id="countTotalCustomers" parameterType="CustomerParams" resultType="java.lang.Long"
+         useCache="true">
+      SELECT FOUND_ROWS() AS 'found_rows'
+   </select>
+   
+   <insert id="insertCustomer" parameterType="CustomerParams"
+      useGeneratedKeys="true" keyProperty="CustomerParams.id"
       keyColumn="ID">
       INSERT INTO CUSTOMER
-      (CUST_ID,    CUST_NAME,    ADDR,    AREA,    STATE,    EMAIL,    PHONE,    PRI_MOBILE,    CONTACT_PERSON1,
-    TIN_NUM,    CST_NUM,    PAN_NUM,    ECC_NUM,    HOLDING_ADVICE,    CREDIT_DAYS,    MAX_CYLINDER,
+      (CUST_ID,    CUST_NAME,    ADDR,    AREA,    STATE,    EMAIL,    PHONE,    PRI_MOBILE,    SEC_MOBILE, CONTACT_PERSON1,
+    	CONTACT_PERSON2,	TIN_NUM,    CST_NUM,    PAN_NUM,    ECC_NUM,    HOLDING_ADVICE,    CREDIT_DAYS,    MAX_CYLINDER,
         MIN_CYLINDER,    SECOND)
       VALUES
       (#{id,jdbcType=NUMERIC},
-		#{customerName,jdbcType=VARCHAR},
-		#{customerAddress,jdbcType=VARCHAR},
-		#{customerArea,jdbcType=VARCHAR},
-		#{customerState,jdbcType=VARCHAR},
-		#{customerEmail,jdbcType=VARCHAR},
-		#{customerPhone,jdbcType=VARCHAR},
-		#{customerMobile,jdbcType=VARCHAR},
-		#{customerContactPerson,jdbcType=VARCHAR},
-		#{customerTinNo,jdbcType=VARCHAR},
-		#{customerCstNo,jdbcType=VARCHAR},
-		#{customerPanNo,jdbcType=VARCHAR},
-		#{customerECCNo,jdbcType=VARCHAR},		
-		#{customerHoldingAdvice,jdbcType=VARCHAR},
-		#{customerCreditDays,jdbcType=NUMERIC},
-		#{customerMaxCylinder,jdbcType=NUMERIC},
-		#{customerMinCylinder,jdbcType=NUMERIC},		
-		#{customerSecond,jdbcType=VARCHAR})
+		#{name,jdbcType=VARCHAR},
+		#{address,jdbcType=VARCHAR},
+		#{area,jdbcType=VARCHAR},
+		#{state,jdbcType=VARCHAR},
+		#{email,jdbcType=VARCHAR},
+		#{phone,jdbcType=VARCHAR},
+		#{priMobile,jdbcType=VARCHAR},
+		#{secMobile,jdbcType=VARCHAR},
+		#{contactPerson1,jdbcType=VARCHAR},
+		#{contactPerson2,jdbcType=VARCHAR},
+		#{tinNum,jdbcType=VARCHAR},
+		#{cstNum,jdbcType=VARCHAR},
+		#{panNum,jdbcType=VARCHAR},
+		#{eCCNum,jdbcType=VARCHAR},		
+		#{holdingAdvice,jdbcType=VARCHAR},
+		#{creditDays,jdbcType=NUMERIC},
+		#{maxCylinder,jdbcType=NUMERIC},
+		#{minCylinder,jdbcType=NUMERIC},		
+		#{second,jdbcType=VARCHAR})
    </insert>
+   
+   <update id="updateCustomer" parameterType="map">
+      UPDATE CUSTOMER SET 
+      	CUST_NAME = #{name,jdbcType=VARCHAR},
+		ADDR = #{address,jdbcType=VARCHAR},
+		AREA = #{area,jdbcType=VARCHAR},
+		STATE = #{state,jdbcType=VARCHAR},
+		EMAIL = #{email,jdbcType=VARCHAR},
+		PHONE = #{phone,jdbcType=VARCHAR},
+		PRI_MOBILE = #{priMobile,jdbcType=VARCHAR},
+		SEC_MOBILE = #{secMobile,jdbcType=VARCHAR},
+		CONTACT_PERSON1 = #{contactPerson1,jdbcType=VARCHAR},
+		CONTACT_PERSON2	= #{contactPerson2,jdbcType=VARCHAR},
+		TIN_NUM = #{tinNum,jdbcType=VARCHAR},
+		CST_NUM	= #{cstNum,jdbcType=VARCHAR},
+		PAN_NUM	= #{panNum,jdbcType=VARCHAR},
+		ECC_NUM	= #{eCCNum,jdbcType=VARCHAR}, 
+		HOLDING_ADVICE = #{holdingAdvice,jdbcType=VARCHAR},
+		CREDIT_DAYS = #{creditDays,jdbcType=NUMERIC},
+		MAX_CYLINDER = #{maxCylinder,jdbcType=NUMERIC},
+		MIN_CYLINDER = #{minCylinder,jdbcType=NUMERIC}, 
+		SECOND = #{second,jdbcType=VARCHAR}
+      where CUST_ID = #{id,jdbcType=NUMERIC}
+   </update>
+   
+   <delete id="removeCustomer" parameterType="map">      
+      DELETE FROM CUSTOMER 
+      where CUST_ID = #{id,jdbcType=NUMERIC}
+   </delete>
 </mapper>

@@ -8,6 +8,13 @@ public interface CustomerService {
 
 	List<CustomerParams> getCustomers(CustomerParams params);
 
-	void insertCustoemr(CustomerParams params);
+	Long countTotalCustomers(CustomerParams params);
+	
+	void insertCustomer(CustomerParams params);
+
+	void updateCustomer(CustomerParams params);
+	
+	void removeCustomer(CustomerParams params);
+
 
 }

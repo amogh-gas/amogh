@@ -2,27 +2,30 @@ package org.mahesh.samples.mvc.views;
 
 import java.io.Serializable;
 
-public class CustomerParams implements Serializable{
+public class CustomerParams extends PaginationParams implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	private long id;
-	private String customerName;
-	private String customerAddress;
-	private String customerArea;
-	private String customerState;
-	private String customerEmail;
-	private String customerPhone;
-	private String customerMobile;
-	private String customerContactPerson;
-	private String customerTinNo;
-	private String customerCstNo;
-	private String customerPanNo;
-	private String customerECCNo;
-	private String customerHoldingAdvice;
-	private int customerCreditDays;
-	private int customerMaxCylinder;
-	private int customerMinCylinder;
-	private String customerSecond;
+	private String name;
+	private String address;
+	private String area;
+	private String state;
+	private String email;
+	private String phone;
+	private String primobile;
+	private String secmobile;
+	private String contactPerson1;
+	private String contactPerson2;
+	private String tinNum;
+	private String cstNum;
+	private String panNum;
+	private String eCCNum;
+	private String holdingAdvice;
+	private int creditDays;
+	private int maxCylinder;
+	private int minCylinder;
+	private String second;
+	private String saveType;
 	
 	public long getId() {
 		return id;
@@ -30,258 +33,138 @@ public class CustomerParams implements Serializable{
 	public void setId(long id) {
 		this.id = id;
 	}
-	public String getCustomerName() {
-		return customerName;
+	public String getName() {
+		return name;
 	}
-	public void setCustomerName(String customerName) {
-		this.customerName = customerName;
+	public void setName(String name) {
+		this.name = name;
 	}
-	public String getCustomerEmail() {
-		return customerEmail;
+	public String getAddress() {
+		return address;
 	}
-	public void setCustomerEmail(String customerEmail) {
-		this.customerEmail = customerEmail;
+	public void setAddress(String address) {
+		this.address = address;
 	}
-	public String getCustomerAddress() {
-		return customerAddress;
+	public String getArea() {
+		return area;
 	}
-	public void setCustomerAddress(String customerAddress) {
-		this.customerAddress = customerAddress;
+	public void setArea(String area) {
+		this.area = area;
 	}
-	public String getCustomerArea() {
-		return customerArea;
+	public String getState() {
+		return state;
 	}
-	public void setCustomerArea(String customerArea) {
-		this.customerArea = customerArea;
+	public void setState(String state) {
+		this.state = state;
 	}
-	public String getCustomerState() {
-		return customerState;
+	public String getEmail() {
+		return email;
 	}
-	public void setCustomerState(String customerState) {
-		this.customerState = customerState;
+	public void setEmail(String email) {
+		this.email = email;
 	}
-	public String getCustomerPhone() {
-		return customerPhone;
+	public String getPhone() {
+		return phone;
 	}
-	public void setCustomerPhone(String customerPhone) {
-		this.customerPhone = customerPhone;
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
-	public String getCustomerMobile() {
-		return customerMobile;
+	public String getPrimobile() {
+		return primobile;
 	}
-	public void setCustomerMobile(String customerMobile) {
-		this.customerMobile = customerMobile;
+	public void setPrimobile(String primobile) {
+		this.primobile = primobile;
 	}
-	public String getCustomerContactPerson() {
-		return customerContactPerson;
+	public String getSecmobile() {
+		return secmobile;
 	}
-	public void setCustomerContactPerson(String customerContactPerson) {
-		this.customerContactPerson = customerContactPerson;
+	public void setSecmobile(String secmobile) {
+		this.secmobile = secmobile;
 	}
-	public String getCustomerTinNo() {
-		return customerTinNo;
+	public String getContactPerson1() {
+		return contactPerson1;
 	}
-	public void setCustomerTinNo(String customerTinNo) {
-		this.customerTinNo = customerTinNo;
+	public void setContactPerson1(String contactPerson1) {
+		this.contactPerson1 = contactPerson1;
 	}
-	public String getCustomerCstNo() {
-		return customerCstNo;
+	public String getContactPerson2() {
+		return contactPerson2;
 	}
-	public void setCustomerCstNo(String customerCstNo) {
-		this.customerCstNo = customerCstNo;
+	public void setContactPerson2(String contactPerson2) {
+		this.contactPerson2 = contactPerson2;
 	}
-	public String getCustomerPanNo() {
-		return customerPanNo;
+	public String getTinNum() {
+		return tinNum;
 	}
-	public void setCustomerPanNo(String customerPanNo) {
-		this.customerPanNo = customerPanNo;
+	public void setTinNum(String tinNum) {
+		this.tinNum = tinNum;
 	}
-	public String getCustomerECCNo() {
-		return customerECCNo;
+	public String getCstNum() {
+		return cstNum;
 	}
-	public void setCustomerECCNo(String customerECCNo) {
-		this.customerECCNo = customerECCNo;
+	public void setCstNum(String cstNum) {
+		this.cstNum = cstNum;
 	}
-	public String getCustomerHoldingAdvice() {
-		return customerHoldingAdvice;
+	public String getPanNum() {
+		return panNum;
 	}
-	public void setCustomerHoldingAdvice(String customerHoldingAdvice) {
-		this.customerHoldingAdvice = customerHoldingAdvice;
+	public void setPanNum(String panNum) {
+		this.panNum = panNum;
 	}
-	public int getCustomerCreditDays() {
-		return customerCreditDays;
+	public String geteCCNum() {
+		return eCCNum;
 	}
-	public void setCustomerCreditDays(int customerCreditDays) {
-		this.customerCreditDays = customerCreditDays;
+	public void seteCCNum(String eCCNum) {
+		this.eCCNum = eCCNum;
 	}
-	public int getCustomerMaxCylinder() {
-		return customerMaxCylinder;
+	public String getHoldingAdvice() {
+		return holdingAdvice;
 	}
-	public void setCustomerMaxCylinder(int customerMaxCylinder) {
-		this.customerMaxCylinder = customerMaxCylinder;
+	public void setHoldingAdvice(String holdingAdvice) {
+		this.holdingAdvice = holdingAdvice;
 	}
-	public int getCustomerMinCylinder() {
-		return customerMinCylinder;
+	public int getCreditDays() {
+		return creditDays;
 	}
-	public void setCustomerMinCylinder(int customerMinCylinder) {
-		this.customerMinCylinder = customerMinCylinder;
+	public void setCreditDays(int creditDays) {
+		this.creditDays = creditDays;
 	}
-	public String getCustomerSecond() {
-		return customerSecond;
+	public int getMaxCylinder() {
+		return maxCylinder;
 	}
-	public void setCustomerSecond(String customerSecond) {
-		this.customerSecond = customerSecond;
+	public void setMaxCylinder(int maxCylinder) {
+		this.maxCylinder = maxCylinder;
 	}
-	public static long getSerialversionuid() {
-		return serialVersionUID;
+	public int getMinCylinder() {
+		return minCylinder;
 	}
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result
-				+ ((customerAddress == null) ? 0 : customerAddress.hashCode());
-		result = prime * result
-				+ ((customerArea == null) ? 0 : customerArea.hashCode());
-		result = prime
-				* result
-				+ ((customerContactPerson == null) ? 0 : customerContactPerson
-						.hashCode());
-		result = prime * result + customerCreditDays;
-		result = prime * result
-				+ ((customerCstNo == null) ? 0 : customerCstNo.hashCode());
-		result = prime * result
-				+ ((customerECCNo == null) ? 0 : customerECCNo.hashCode());
-		result = prime * result
-				+ ((customerEmail == null) ? 0 : customerEmail.hashCode());
-		result = prime
-				* result
-				+ ((customerHoldingAdvice == null) ? 0 : customerHoldingAdvice
-						.hashCode());
-		result = prime * result + customerMaxCylinder;
-		result = prime * result + customerMinCylinder;
-		result = prime * result
-				+ ((customerMobile == null) ? 0 : customerMobile.hashCode());
-		result = prime * result
-				+ ((customerName == null) ? 0 : customerName.hashCode());
-		result = prime * result
-				+ ((customerPanNo == null) ? 0 : customerPanNo.hashCode());
-		result = prime * result
-				+ ((customerPhone == null) ? 0 : customerPhone.hashCode());
-		result = prime * result
-				+ ((customerSecond == null) ? 0 : customerSecond.hashCode());
-		result = prime * result
-				+ ((customerState == null) ? 0 : customerState.hashCode());
-		result = prime * result
-				+ ((customerTinNo == null) ? 0 : customerTinNo.hashCode());
-		result = prime * result + (int) (id ^ (id >>> 32));
-		return result;
+	public void setMinCylinder(int minCylinder) {
+		this.minCylinder = minCylinder;
 	}
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (!(obj instanceof CustomerParams))
-			return false;
-		CustomerParams other = (CustomerParams) obj;
-		if (customerAddress == null) {
-			if (other.customerAddress != null)
-				return false;
-		} else if (!customerAddress.equals(other.customerAddress))
-			return false;
-		if (customerArea == null) {
-			if (other.customerArea != null)
-				return false;
-		} else if (!customerArea.equals(other.customerArea))
-			return false;
-		if (customerContactPerson == null) {
-			if (other.customerContactPerson != null)
-				return false;
-		} else if (!customerContactPerson.equals(other.customerContactPerson))
-			return false;
-		if (customerCreditDays != other.customerCreditDays)
-			return false;
-		if (customerCstNo == null) {
-			if (other.customerCstNo != null)
-				return false;
-		} else if (!customerCstNo.equals(other.customerCstNo))
-			return false;
-		if (customerECCNo == null) {
-			if (other.customerECCNo != null)
-				return false;
-		} else if (!customerECCNo.equals(other.customerECCNo))
-			return false;
-		if (customerEmail == null) {
-			if (other.customerEmail != null)
-				return false;
-		} else if (!customerEmail.equals(other.customerEmail))
-			return false;
-		if (customerHoldingAdvice == null) {
-			if (other.customerHoldingAdvice != null)
-				return false;
-		} else if (!customerHoldingAdvice.equals(other.customerHoldingAdvice))
-			return false;
-		if (customerMaxCylinder != other.customerMaxCylinder)
-			return false;
-		if (customerMinCylinder != other.customerMinCylinder)
-			return false;
-		if (customerMobile == null) {
-			if (other.customerMobile != null)
-				return false;
-		} else if (!customerMobile.equals(other.customerMobile))
-			return false;
-		if (customerName == null) {
-			if (other.customerName != null)
-				return false;
-		} else if (!customerName.equals(other.customerName))
-			return false;
-		if (customerPanNo == null) {
-			if (other.customerPanNo != null)
-				return false;
-		} else if (!customerPanNo.equals(other.customerPanNo))
-			return false;
-		if (customerPhone == null) {
-			if (other.customerPhone != null)
-				return false;
-		} else if (!customerPhone.equals(other.customerPhone))
-			return false;
-		if (customerSecond == null) {
-			if (other.customerSecond != null)
-				return false;
-		} else if (!customerSecond.equals(other.customerSecond))
-			return false;
-		if (customerState == null) {
-			if (other.customerState != null)
-				return false;
-		} else if (!customerState.equals(other.customerState))
-			return false;
-		if (customerTinNo == null) {
-			if (other.customerTinNo != null)
-				return false;
-		} else if (!customerTinNo.equals(other.customerTinNo))
-			return false;
-		if (id != other.id)
-			return false;
-		return true;
+	public String getSecond() {
+		return second;
+	}
+	public void setSecond(String second) {
+		this.second = second;
+	}
+	public String getSaveType() {
+		return saveType;
+	}
+	public void setSaveType(String saveType) {
+		this.saveType = saveType;
 	}
 	@Override
 	public String toString() {
-		return "CustomerParams [id=" + id + ", customerName=" + customerName
-				+ ", customerAddress=" + customerAddress + ", customerArea="
-				+ customerArea + ", customerState=" + customerState
-				+ ", customerEmail=" + customerEmail + ", customerPhone="
-				+ customerPhone + ", customerMobile=" + customerMobile
-				+ ", customerContactPerson=" + customerContactPerson
-				+ ", customerTinNo=" + customerTinNo + ", customerCstNo="
-				+ customerCstNo + ", customerPanNo=" + customerPanNo
-				+ ", customerECCNo=" + customerECCNo
-				+ ", customerHoldingAdvice=" + customerHoldingAdvice
-				+ ", customerCreditDays=" + customerCreditDays
-				+ ", customerMaxCylinder=" + customerMaxCylinder
-				+ ", customerMinCylinder=" + customerMinCylinder
-				+ ", customerSecond=" + customerSecond + "]";
+		return "CustomerParams [id=" + id + ", name=" + name + ", address="
+				+ address + ", area=" + area + ", state=" + state + ", email="
+				+ email + ", phone=" + phone + ", primobile=" + primobile
+				+ ", secmobile=" + secmobile + ", contactPerson1="
+				+ contactPerson1 + ", contactPerson2=" + contactPerson2
+				+ ", tinNum=" + tinNum + ", cstNum=" + cstNum + ", panNum="
+				+ panNum + ", eCCNum=" + eCCNum + ", holdingAdvice="
+				+ holdingAdvice + ", creditDays=" + creditDays
+				+ ", maxCylinder=" + maxCylinder + ", minCylinder="
+				+ minCylinder + ", second=" + second + "]";
 	}
-		
+	
 }

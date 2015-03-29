@@ -4,9 +4,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import org.mahesh.samples.mvc.service.CustomerService;
+import org.mahesh.samples.mvc.views.Constants;
 import org.mahesh.samples.mvc.views.CustomerParams;
 import org.mahesh.samples.mvc.views.ResponseJSON;
-import org.mahesh.samples.mvc.views.ViewsController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,55 +18,43 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping(value="/customer", method=RequestMethod.GET)
 public class CustomerController {
 
-	/**
-	 * Logger Name for this class.
-	 */
-	private static final String LOGGING_CLASS_NAME = ViewsController.class
-			.getName();
-
-	/**
-	 * Logger for this class.
-	 */
+	private static final String LOGGING_CLASS_NAME = CustomerController.class.getName();
 	private static final Logger LOGGER = Logger.getLogger(LOGGING_CLASS_NAME);
 
-	/** The resource service. */
 	@Autowired
 	private CustomerService customerService;
 
 	/**
-	 * Load resouce details.
-	 * 
-	 * @param resourceDetails
-	 *            the resource details
-	 * @return the response json
+	 * Retrieve all customers
+	 * @param customerParams
+	 * @return
 	 */
 	@RequestMapping(value = "/getCustomers", method = RequestMethod.POST)
 	@ResponseBody
 	public final ResponseJSON getCustomers(
-			@RequestBody final CustomerParams resourceDetails) {
+			@RequestBody final CustomerParams customerParams) {
 		final ResponseJSON mResponseJSON = new ResponseJSON();
-		try {
-				mResponseJSON.setResult(customerService.getCustomers(resourceDetails));
+		try {			
+			if (customerParams.getPagenum() != null
+					&& customerParams.getPagesize() != null) {
+				customerParams.setRows(customerService.getCustomers(customerParams));
+				customerParams.setTotalRows(customerService.countTotalCustomers(customerParams));
+				mResponseJSON.setResult(customerParams);
 				mResponseJSON.setStatus("SUCCESS");
+			}
 		} catch (Exception e) {
-			LOGGER.log(
-					Level.SEVERE,
-					"There is unknown exception from ViewsController while getting the menu details ",
-					e);
+			LOGGER.log(Level.SEVERE, "There is unknown exception from CustomerController while getting the customer details", e);
 			mResponseJSON.setStatus("FAILURE");
-			mResponseJSON
-					.setMessage("There is unknown exception from ViewsController while getting the menu details");
+			mResponseJSON.setMessage("There is unknown exception from CustomerController while getting the customer details");
 		}
-
+		
 		return mResponseJSON;
 	}
 
 	/**
-	 * Adds the resouce details.
-	 * 
-	 * @param resourceDetails
-	 *            the resource details
-	 * @return the response json
+	 * Create a new customer to the table
+	 * @param params
+	 * @return
 	 */
 	@RequestMapping(value = "/addCustomer", method = RequestMethod.POST)
 	@ResponseBody
@@ -74,21 +62,21 @@ public class CustomerController {
 			@RequestBody final CustomerParams params) {
 		final ResponseJSON mResponseJSON = new ResponseJSON();
 		try {
-
-			customerService.insertCustoemr(params);
+			if(Constants.UPDATE.equalsIgnoreCase(params.getSaveType())) {
+				customerService.updateCustomer(params);
+			} else if(Constants.REMOVE.equalsIgnoreCase(params.getSaveType())) {
+				customerService.removeCustomer(params);
+			} else {
+				customerService.insertCustomer(params);
+			}
 			mResponseJSON.setResult(params);
 			mResponseJSON.setStatus("SUCCESS");
 		} catch (Exception e) {
-			LOGGER.log(
-					Level.SEVERE,
-					"There is unknown exception from ViewsController while adding the menu details ",
-					e);
+			LOGGER.log(Level.SEVERE, "There is unknown exception from CustomerController while adding the customer details", e);
 			mResponseJSON.setStatus("FAILURE");
-			mResponseJSON
-					.setMessage("There is unknown exception from ViewsController while adding the menu details");
+			mResponseJSON.setMessage("There is unknown exception from CustomerController while adding the customer details");
 		}
 
 		return mResponseJSON;
 	}
-
 }
