@@ -84,10 +84,13 @@ $(document).ready(function() {
 			            }, buttonclick: function (row) {
 			            	// @param row index.
 			            	var data = $('#productDetails').jqxGrid('getrowdata', row);				            	
-			            	$('#saveType').val(CONSTANT.REMOVE);
-			            	$('#id').val(data.id);
-			            	$('#name').val(data.name);
-			            	saveProduct();
+			            	
+			            	if(confirm("Do you want to remove? \n\n"+ data.name +"!")) {
+			            		$('#saveType').val(CONSTANT.REMOVE);
+			            		$('#id').val(data.id);
+			            		$('#name').val(data.name);
+			            		saveProduct();
+			            	}
 			            }
 			          },
 				    ]

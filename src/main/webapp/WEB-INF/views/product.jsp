@@ -10,7 +10,7 @@
   <div class="rounded">
 	
 	<div id="productMenu" style="visibility: hidden;">
-		<p>PRODUCTS</p>
+		<p class="mainMenuId">PRODUCT</p>
 		<input type="button" value="Open" id="showWindowButton" />
         <p></p>
 		<div id="productDetails" style="font-size: 13px; font-family: Verdana;"></div>

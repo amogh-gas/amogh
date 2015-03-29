@@ -1,4 +1,4 @@
-.register-table {
+/* .register-table {
 	margin-top: 10px;
 	margin-bottom: 10px;
 }
@@ -22,3 +22,11 @@ h3 {
 	display: inline-block;
 	margin: 0px;
 }
+ */
+p.mainMenuId {
+    font-family:initial;
+    font-size:150%;
+    background-color:#e0e9f5;
+    padding-left:2px;
+    top:inherit;
+    }

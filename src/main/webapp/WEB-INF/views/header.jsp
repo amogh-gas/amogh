@@ -6,6 +6,7 @@
 <link href="<c:url value="/resources/layout/styles/layout.css" />" rel="stylesheet" type="text/css" media="all">
 <link rel="stylesheet" href="<c:url value="/resources/jqwidgets/styles/jqx.base.css" />" type="text/css">
 <link rel="stylesheet" href="<c:url value="/resources/jqwidgets/styles/jqx.energyblue.css" />" type="text/css">
+<link rel="stylesheet" href="<c:url value="/resources/css/styles/common.css" />" type="text/css">
 <!--
 		Used for including CSRF token in JSON requests
 		Also see bottom of this file for adding CSRF token to JQuery AJAX requests
