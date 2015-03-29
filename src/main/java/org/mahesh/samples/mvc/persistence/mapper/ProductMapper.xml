@@ -7,7 +7,7 @@
    
       <result property="id" column="PROD_ID" />
       <result property="name" column="PROD_NAME" />
-      <result property="typeId" column="PROD_TYP" />
+      <result property="typeId" column="PROD_TYPE_ID" />
       <result property="desc" column="PORDUCT_DESC" />
       <result property="shortDesc" column="SHORT_DESC" />
       <result property="unit" column="UNIT" />
@@ -30,7 +30,7 @@
       useGeneratedKeys="true" keyProperty="productParams.id"
       keyColumn="ID">
       INSERT INTO PRODUCT
-      (PROD_ID,    PROD_NAME,    PROD_TYP,    PORDUCT_DESC,    SHORT_DESC,    UNIT,
+      (PROD_ID,    PROD_NAME,    PROD_TYPE_ID,    PORDUCT_DESC,    SHORT_DESC,    UNIT,
 	    UNDER,    TARIFF_CODE)
       VALUES
       (#{id,jdbcType=NUMERIC},
@@ -46,7 +46,7 @@
    <update id="updateProduct" parameterType="map">
       UPDATE PRODUCT SET
       PROD_NAME = #{name,jdbcType=VARCHAR},
-      PROD_TYP = #{typeId,jdbcType=NUMERIC},
+      PROD_TYPE_ID = #{typeId,jdbcType=NUMERIC},
       PORDUCT_DESC = #{desc,jdbcType=VARCHAR},
       SHORT_DESC = #{shortDesc,jdbcType=VARCHAR},
       UNIT = #{unit,jdbcType=VARCHAR},
