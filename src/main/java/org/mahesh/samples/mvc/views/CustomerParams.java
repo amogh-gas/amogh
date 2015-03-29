@@ -12,8 +12,8 @@ public class CustomerParams extends PaginationParams implements Serializable{
 	private String state;
 	private String email;
 	private String phone;
-	private String primobile;
-	private String secmobile;
+	private String priMobile;
+	private String secMobile;
 	private String contactPerson1;
 	private String contactPerson2;
 	private String tinNum;
@@ -69,17 +69,17 @@ public class CustomerParams extends PaginationParams implements Serializable{
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-	public String getPrimobile() {
-		return primobile;
+	public String getPriMobile() {
+		return priMobile;
 	}
-	public void setPrimobile(String primobile) {
-		this.primobile = primobile;
+	public void setPriMobile(String priMobile) {
+		this.priMobile = priMobile;
 	}
-	public String getSecmobile() {
-		return secmobile;
+	public String getSecMobile() {
+		return secMobile;
 	}
-	public void setSecmobile(String secmobile) {
-		this.secmobile = secmobile;
+	public void setSecMobile(String secMobile) {
+		this.secMobile = secMobile;
 	}
 	public String getContactPerson1() {
 		return contactPerson1;
@@ -157,8 +157,8 @@ public class CustomerParams extends PaginationParams implements Serializable{
 	public String toString() {
 		return "CustomerParams [id=" + id + ", name=" + name + ", address="
 				+ address + ", area=" + area + ", state=" + state + ", email="
-				+ email + ", phone=" + phone + ", primobile=" + primobile
-				+ ", secmobile=" + secmobile + ", contactPerson1="
+				+ email + ", phone=" + phone + ", priMobile=" + priMobile
+				+ ", secMobile=" + secMobile + ", contactPerson1="
 				+ contactPerson1 + ", contactPerson2=" + contactPerson2
 				+ ", tinNum=" + tinNum + ", cstNum=" + cstNum + ", panNum="
 				+ panNum + ", eCCNum=" + eCCNum + ", holdingAdvice="
