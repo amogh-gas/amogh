@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 1. Master XML file which holds mapping between application role defined 
+   in authentication source and Privileges of application. 2. This XML will 
+   be loaded and validated against XSD at server startup -->
+
+<PrivilegeToRoleWrapper xmlns="http://www.pepsico.co.uk/work">
+
+   <PrivilegeToRole>
+      <RoleDetails>
+         <RoleCode>Create_Edit_Product</RoleCode>
+      </RoleDetails>
+      <PrivilegeDetails>
+         <PrivilegeCode>CREATE_NEW_PRODUCT</PrivilegeCode>
+      </PrivilegeDetails>
+      <PrivilegeDetails>
+         <PrivilegeCode>EDIT_PRODUCT</PrivilegeCode>
+      </PrivilegeDetails>
+      <PrivilegeDetails>
+         <PrivilegeCode>VIEW_PRODUCT</PrivilegeCode>
+      </PrivilegeDetails>
+   </PrivilegeToRole>
+
+   <PrivilegeToRole>
+      <RoleDetails>
+         <RoleCode>Admin_Amogh</RoleCode>
+      </RoleDetails>
+      <PrivilegeDetails>
+         <PrivilegeCode>CREATE_NEW_PRODUCT</PrivilegeCode>
+      </PrivilegeDetails>
+      <PrivilegeDetails>
+         <PrivilegeCode>EDIT_PRODUCT</PrivilegeCode>
+      </PrivilegeDetails>
+      <PrivilegeDetails>
+         <PrivilegeCode>VIEW_PRODUCT</PrivilegeCode>
+      </PrivilegeDetails>
+      <PrivilegeDetails>
+         <PrivilegeCode>MENU_MENTAINANCE</PrivilegeCode>
+      </PrivilegeDetails>
+   </PrivilegeToRole>
+
+</PrivilegeToRoleWrapper>
+ 
+ 
+ 
+
+

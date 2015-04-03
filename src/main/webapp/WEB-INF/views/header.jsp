@@ -1,5 +1,10 @@
 <%@include file="imports.jsp" %>
-<!DOCTYPE html>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+    "http://www.w3.org/TR/html4/loose.dtd">
+<%@ taglib uri="http://www.springframework.org/tags" prefix="sptg"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 <head>
 <title>${param.pageTitle}</title>
@@ -13,8 +18,12 @@
 	-->
 <meta name="_csrf" content="${_csrf.token}" />
 <meta name="_csrf_header" content="${_csrf.headerName}" />
+
 </head>
 <body id="top">
+	<c:set var="currentUser">
+		<sec:authentication property="principal.username" />
+	</c:set>
 	<script type="text/javascript" src="<c:url value="/resources/jquery/1.11.2/jquery-1.11.2.min.js" />"></script>
 	<script type="text/javascript" src="<c:url value="/resources/jquery/jquery.i18n.properties-1.0.9.js" />"></script>
 	<script type="text/javascript" src="<c:url value="/resources/json2.js" />"></script>
@@ -27,10 +36,13 @@
 	  <div id="topbar" class="clear"> 
 	    <!-- ################################################################################################ -->
 	    <nav>
-	      <ul>
-	        <li><a href="#">Home</a></li>
-	        <li><a href="#">Login</a></li>
-	      </ul>
+		   <ul>
+				<li><a href="#">Home</a></li>
+				<c:if test="${not empty currentUser}">
+					<li><a
+						href="${pageContext.request.contextPath}/j_spring_security_logout">Logout</a></li>
+				</c:if>
+			</ul>
 	    </nav>
 	    <!-- ################################################################################################ --> 
 	  </div>

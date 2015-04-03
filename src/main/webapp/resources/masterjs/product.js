@@ -8,6 +8,7 @@ $(document).ready(function() {
 	{		
 			contentType : 'application/json',
 			datatype: "json",
+			cache: false,
 			datafields: [
 			             { name: 'id' },
 			             { name: 'name' },
@@ -26,8 +27,8 @@ $(document).ready(function() {
 			            	 req.setRequestHeader(header, token);
 			             },
 			             beforeprocessing: function (data) {
-			            	 source.totalrecords = data.result.totalRows;
-			             },       
+			            	source.totalrecords = data.result.totalRows;
+			             }       
 	};
 
 	var dataadapter = new $.jqx.dataAdapter(source,
@@ -45,12 +46,11 @@ $(document).ready(function() {
 				selectionmode: 'rowselect',
 				source: dataadapter,
 				theme: CONSTANT.THEME,
-				editable: false,
 				autoheight: true,
 				pageable: true,
 				virtualmode: true,
-				rendergridrows: function () {
-					return dataadapter.records;
+				rendergridrows: function (params) {
+					return params.data;
 				},
 				columns: 
 					[
@@ -203,7 +203,7 @@ $(document).ready(function() {
         };
         function _createElements() {
             $('#showWindowButton').jqxButton({ width: '80px',theme:CONSTANT.THEME});
-            $('#customWindow').jqxWindow({  showCollapseButton: true,theme:CONSTANT.THEME,width: '26%',
+            $('#customWindow').jqxWindow({  animationType: 'combined',showCollapseButton: true,theme:CONSTANT.THEME,width: '26%',
                 height: '45%', resizable: true, autoOpen: false, isModal: true, 
                 cancelButton: $('#cancelButton'),
                 initContent: function () {

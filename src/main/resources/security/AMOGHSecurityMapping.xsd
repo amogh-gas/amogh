@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns="http://www.pepsico.co.uk/work" targetNamespace="http://www.pepsico.co.uk/work"
+	elementFormDefault="qualified">
+	<xsd:complexType name="PrivilegeType">
+		<xsd:sequence>
+			<xsd:element name="PrivilegeName" type="xsd:string"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="PrivilegeDesc" type="xsd:string"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="PrivilegeCode" minOccurs="1"
+				maxOccurs="1">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="CREATE_NEW_PRODUCT" />
+						<xsd:enumeration value="EDIT_PRODUCT" />
+                        <xsd:enumeration value="VIEW_PRODUCT" />
+                        <xsd:enumeration value="MENU_MENTAINANCE" />
+						<!-- Dummy entry -->
+						<xsd:enumeration value="" />						
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="RoleType">
+		<xsd:sequence>
+			<xsd:element name="RoleName" type="xsd:string" minOccurs="0"
+				maxOccurs="1" />
+			<xsd:element name="RoleDesc" type="xsd:string" minOccurs="0"
+				maxOccurs="1" />
+			<xsd:element name="RoleCode" minOccurs="1" maxOccurs="1">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+							<xsd:enumeration value="Admin_Amogh" />
+							<xsd:enumeration value="Create_Edit_Product" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="PrivilegeToRoleWrapper">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="PrivilegeToRole" maxOccurs="unbounded"
+					minOccurs="1">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="RoleDetails" type="RoleType"
+								minOccurs="1" maxOccurs="1" />
+							<xsd:element name="PrivilegeDetails" type="PrivilegeType"
+								minOccurs="1" maxOccurs="unbounded" />
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>
+
