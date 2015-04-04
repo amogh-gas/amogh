@@ -14,7 +14,7 @@
 
 .jqx-dropdownlist-content {
 	font-family: Verdana;
-	font-size: 10px;
+	font-size: 12px;
 	background-color: transparent;
 }
 
@@ -24,24 +24,24 @@ h3 {
 }
  */
 p.mainMenuId {
-    font-family:initial;
+    font-family:Georgia, "Times New Roman", Times, serif;
     font-size:10px;
     background-color:#e0e9f5;
     padding-left:2px;
     top:inherit;
     }
 .jqx-widget-energyblue {
-    font-size: 10px;
-    font-family: 'segoe ui', arial, sans-serif;
+    font-size: 12px;
+    font-family: Georgia, "Times New Roman", Times, serif;
 }
-.jqx-widget-content-energyblue{font-size: 10px; font-family: 'segoe ui', arial, sans-serif;color:balck; }
-.jqx-widget-header-energyblue{font-size: 10px; font-family: 'segoe ui', arial, sans-serif;color:balck;}
-.jqx-fill-state-normal-energyblue, .jqx-fill-state-hover-energyblue, .jqx-fill-state-pressed-energyblue{font-size: 10px; font-family: 'segoe ui', arial, sans-serif; }
+.jqx-widget-content-energyblue{font-size: 12px; font-family: Georgia, "Times New Roman", Times, serif;color:balck; }
+.jqx-widget-header-energyblue{font-size: 12px; font-family: Georgia, "Times New Roman", Times, serif;color:balck;}
+.jqx-fill-state-normal-energyblue, .jqx-fill-state-hover-energyblue, .jqx-fill-state-pressed-energyblue{font-size: 12px; font-family: Georgia, "Times New Roman", Times, serif; }
 
 .jqx-widget-hover-energyblue {
-    font-size: 10px;
-    font-family: 'segoe ui', arial, sans-serif;
+    font-size: 12px;
+    font-family: Georgia, "Times New Roman", Times, serif;
 }
-.jqx-widget-content-hover-energyblue{font-size: 10px; font-family: 'segoe ui', arial, sans-serif;color:balck; }
-.jqx-widget-header-hover-energyblue{font-size: 10px; font-family: 'segoe ui', arial, sans-serif;color:balck;}
-.jqx-fill-state-normal-hover-energyblue, .jqx-fill-state-hover-energyblue, .jqx-fill-state-pressed-hover-energyblue{font-size: 10px; font-family: 'segoe ui', arial, sans-serif; }
+.jqx-widget-content-hover-energyblue{font-size: 12px; font-family: Georgia, "Times New Roman", Times, serif;color:balck; }
+.jqx-widget-header-hover-energyblue{font-size: 12px; font-family: Georgia, "Times New Roman", Times, serif;color:balck;}
+.jqx-fill-state-normal-hover-energyblue, .jqx-fill-state-hover-energyblue, .jqx-fill-state-pressed-hover-energyblue{font-size: 12px; font-family: Georgia, "Times New Roman", Times, serif; }
