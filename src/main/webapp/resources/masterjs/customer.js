@@ -4,7 +4,7 @@ $(document).ready(function() {
 	var header = $("meta[name='_csrf_header']").attr("content");
 
 	/******** Retrieve Code over ******/
-	var source =
+	var customerGridSource =
 	{		
 			contentType : 'application/json',
 			datatype: "json",
@@ -38,11 +38,11 @@ $(document).ready(function() {
 			            	 req.setRequestHeader(header, token);
 			             },
 			             beforeprocessing: function (data) {
-			            	 source.totalrecords = data.result.totalRows;
+			            	 customerGridSource.totalrecords = data.result.totalRows;
 			             },       
 	};
 
-	var dataadapter = new $.jqx.dataAdapter(source,
+	var customerGridDataAdapter = new $.jqx.dataAdapter(customerGridSource,
 			{
 		formatData: function (data) {
 			return JSON.stringify(data);
@@ -55,37 +55,38 @@ $(document).ready(function() {
 			{    
 				width: '99.5%',
 				selectionmode: 'rowselect',
-				source: dataadapter,
+				source: customerGridDataAdapter,
 				theme: CONSTANT.THEME,
 				editable: false,
+				autorowheight: true,
 				autoheight: true,
 				pageable: true,
 				virtualmode: true,
 				rendergridrows: function () {
-					return dataadapter.records;
+					return customerGridDataAdapter.records;
 				},
 				columns: 
 					[
 			          { text: 'id', editable: false, datafield: 'id', hidden: true },
-			          {text:'CUST_NAME',datafield:'name',width:"25%"},
-			          {text:'ADDR',datafield:'address',width:"25%"},
-			          {text:'AREA',datafield:'area',width:"25%"},
-			          {text:'STATE',datafield:'state',width:"25%"},
-			          {text:'EMAIL',datafield:'email',width:"25%"},
-			          {text:'PHONE',datafield:'phone',width:"25%"},
-			          {text:'PRI_MOBILE',datafield:'priMobile',width:"25%"},
-			          {text:'SEC_MOBILE',datafield:'secMobile',width:"25%"},
-			          {text:'CONTACT_PERSON1',datafield:'contactPerson1',width:"25%"},
-			          {text:'CONTACT_PERSON2',datafield:'contactPerson2',width:"25%"},
-			          {text:'TIN_NUM',datafield:'tinNum',width:"25%"},
-			          {text:'CST_NUM',datafield:'cstNum',width:"25%"},
-			          {text:'PAN_NUM',datafield:'panNum',width:"25%"},
-			          {text:'ECC_NUM',datafield:'eCCNum',width:"25%"},
-			          {text:'HOLDING_ADVICE',datafield:'holdingAdvice',width:"25%"},
-			          {text:'CREDIT_DAYS',datafield:'creditDays',width:"25%"},
-			          {text:'MAX_CYLINDER',datafield:'maxCylinder',width:"25%"},
-			          {text:'MIN_CYLINDER',datafield:'minCylinder',width:"25%"},
-			          {text:'SECOND',datafield:'second',width:"25%"},
+			          {text:'CUST_NAME',datafield:'name',width:"15%"},
+			          {text:'ADDR',datafield:'address',width:"20%"},
+			          {text:'AREA',datafield:'area',width:"10%"},
+			          {text:'STATE',datafield:'state',width:"10%"},
+			          {text:'EMAIL',datafield:'email',width:"15%"},
+			          {text:'PHONE',datafield:'phone',width:"10%"},
+			          {text:'PRI_MOBILE',datafield:'priMobile',width:"10%"},
+			          {text:'SEC_MOBILE',datafield:'secMobile',width:"10%"},
+			          {text:'CONTACT_PERSON 1',datafield:'contactPerson1',width:"15%"},
+			          {text:'CONTACT_PERSON 2',datafield:'contactPerson2',width:"15%"},
+			          {text:'TIN_NUM',datafield:'tinNum',width:"7%"},
+			          {text:'CST_NUM',datafield:'cstNum',width:"7%"},
+			          {text:'PAN_NUM',datafield:'panNum',width:"8%"},
+			          {text:'ECC_NUM',datafield:'eCCNum',width:"7%"},
+			          {text:'HOLDING_ADVICE',datafield:'holdingAdvice',width:"8%"},
+			          {text:'CREDIT_DAYS',datafield:'creditDays',width:"10%"},
+			          {text:'MAX_CYLINDER',datafield:'maxCylinder',width:"10%"},
+			          {text:'MIN_CYLINDER',datafield:'minCylinder',width:"10%"},
+			          {text:'SECOND',datafield:'second',width:"5%"},
 			          { text: ' ', datafield: 'Edit', columntype: 'button', width: "5%", cellsrenderer: function () {
 			                return "Edit";
 			            }, buttonclick: function (row) {
@@ -213,8 +214,8 @@ $(document).ready(function() {
         };
         function _createElements() {
             $('#showWindowButton').jqxButton({ width: '80px',theme:CONSTANT.THEME});
-            $('#customerWindow').jqxWindow({  showCollapseButton: true,theme:CONSTANT.THEME,width: '50%',
-                height: '55%', resizable: true, autoOpen: false, isModal: true, 
+            $('#customerWindow').jqxWindow({  showCollapseButton: true,theme:CONSTANT.THEME,width: '40%',
+                height: '50%', resizable: true, autoOpen: false, isModal: true, 
                 cancelButton: $('#cancelButton'),
                 initContent: function () {
                     $('#saveButton').jqxButton({ width: '80px', disabled: true });
@@ -223,7 +224,8 @@ $(document).ready(function() {
             });
         };
         $('#customerWindow').on('close', function(){
-            $('.jqx-validator-hint').remove();
+        	//close all error display
+            $('.jqx-validator-hint').click();
         });
         return {
             init: function () {
