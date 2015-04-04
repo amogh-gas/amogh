@@ -31,45 +31,45 @@
                        			<tr>
 									<td>Name:</td>
 									<td align="left">
-										<input type="text" id="name" name="name" class="text-input required customerReset"/>
+										<input type="text" id="name" name="name" class="text-input required customerReset" maxlength="100" placeHolder="Enter Customer Name"/>
 										<input id="id" name="id" type="hidden" readonly="readonly" />
 									</td>
 								</tr>
                        			<tr>
 									<td>Address:</td>
-									<td><input type="text" id="address" name="address" class="text-input customerReset" /></td>
+									<td><input type="text" id="address" name="address" class="text-input customerReset" maxlength="200" placeHolder="Enter Address"/></td>
 								</tr>
 								<tr>
 									<td>Area:</td>
-									<td><input type="text" id="area" name="area" class="text-input customerReset"/></td>
+									<td><input type="text" id="area" name="area" class="text-input customerReset" maxlength="50" placeHolder="Enter Area"/></td>
 								</tr>
 								<tr>
 									<td>State:</td>
-									<td><input type="text" id="state"  name="state" class="text-input customerReset required" /></td>
+									<td><input type="text" id="state"  name="state" class="text-input customerReset required" maxlength="20" placeHolder="Enter State"/></td>
 								</tr>
 								<tr>
 									<td>Email:</td>
-									<td><input type="text" id="email" name="email" class="text-input customerReset required"/></td>
+									<td><input type="text" id="email" name="email" class="text-input customerReset required" maxlength="50" placeHolder="Enter Email"/></td>
 								</tr>
 								<tr>
 									<td nowrap="nowrap">Contact Person 1:</td>
-									<td><input type="text" id="contactPerson1" name="contactPerson1" class="text-input customerReset required"/></td>
+									<td><input type="text" id="contactPerson1" name="contactPerson1" class="text-input customerReset required" maxlength="30" placeHolder="Enter Contact Person 1"/></td>
 								</tr>
 								<tr>
 									<td>Contact Person 2:</td>
-									<td><input type="text" id="contactPerson2" name="contactPerson2" class="text-input customerReset required"/></td>
+									<td><input type="text" id="contactPerson2" name="contactPerson2" class="text-input customerReset required" maxlength="30" placeHolder="Enter Contact Person 2"/></td>
 								</tr>
 								<tr>
 									<td>Phone:</td>
-									<td><input type="text" id="phone" name="phone" class="text-input customerReset required"/></td>
+									<td><input type="text" id="phone" name="phone" class="text-input customerReset required" maxlength="20" placeHolder="Enter Phone Number"/></td>
 								</tr>
 								<tr>
 									<td>Holding Advice:</td>
-									<td><input type="text" id="holdingAdvice" name="holdingAdvice" class="text-input customerReset required"/></td>
+									<td><input type="text" id="holdingAdvice" name="holdingAdvice" class="text-input customerReset required" maxlength="1" placeHolder="Enter Holding Advice"/></td>
 								</tr>
 								<tr>
 									<td>Credit Days:</td>
-									<td><input type="text" id="creditDays" name="creditDays" class="text-input customerReset required"/></td>
+									<td><input type="text" id="creditDays" name="creditDays" class="text-input customerReset required numeric" maxlength="4" placeHolder="Enter Credit Days"/></td>
 								</tr>
                        		</table>		
                        	</td>
@@ -77,40 +77,40 @@
                        		<table>
                        			<tr><td colspan="2"/></tr>
 								<tr>
-									<td>Primay Mobile:</td>
-									<td><input type="text" id="priMobile" name="priMobile" class="text-input customerReset"/></td>
+									<td>Primary Mobile:</td>
+									<td><input type="text" id="priMobile" name="priMobile" class="text-input customerReset" maxlength="20" placeHolder="Enter Primary Mobile Number"/></td>
 								</tr>
 								<tr>
 									<td nowrap="nowrap">Secondary Mobile:</td>
-									<td><input type="text" id="secMobile"  name="secMobile" class="text-input customerReset required" /></td>
+									<td><input type="text" id="secMobile"  name="secMobile" class="text-input customerReset required" maxlength="20" placeHolder="Enter Secondary Mobile Number"/></td>
 								</tr>
 								<tr>
 									<td>TIN Number:</td>
-									<td><input type="text" id="tinNum" name="tinNum" class="text-input customerReset required"/></td>
+									<td><input type="text" id="tinNum" name="tinNum" class="text-input customerReset required numeric" maxlength="20" placeHolder="Enter TIN Number"/></td>
 								</tr>
 								<tr>
 									<td>CST Number:</td>
-									<td><input type="text" id="cstNum" name="cstNum" class="text-input customerReset required"/></td>
+									<td><input type="text" id="cstNum" name="cstNum" class="text-input customerReset required numeric" maxlength="20" placeHolder="Enter CST Number"/></td>
 								</tr>
 								<tr>
 									<td>PAN Number:</td>
-									<td><input type="text" id="panNum" name="panNum" class="text-input customerReset required"/></td>
+									<td><input type="text" id="panNum" name="panNum" class="text-input customerReset required" maxlength="20" placeHolder="Enter PAN Number"/></td>
 								</tr>
 								<tr>
 									<td>ECC Number:</td>
-									<td><input type="text" id="eCCNum" name="eCCNum" class="text-input customerReset required"/></td>
+									<td><input type="text" id="eCCNum" name="eCCNum" class="text-input customerReset required numeric" maxlength="20" placeHolder="Enter ECC Number"/></td>
 								</tr>
 								<tr>
 									<td>Max Cylinder:</td>
-									<td><input type="text" id="maxCylinder" name="maxCylinder" class="text-input customerReset required"/></td>
+									<td><input type="text" id="maxCylinder" name="maxCylinder" class="text-input customerReset required numeric" maxlength="4" placeHolder="Enter Max Cylinder"/></td>
 								</tr>
 								<tr>
 									<td>Min Cylinder:</td>
-									<td><input type="text" id="minCylinder" name="minCylinder" class="text-input customerReset required"/></td>
+									<td><input type="text" id="minCylinder" name="minCylinder" class="text-input customerReset required numeric" maxlength="4" placeHolder="Enter Min Cylinder"/></td>
 								</tr>
 								<tr>
 									<td>second:</td>
-									<td><input type="text" id="second" name="second" class="text-input customerReset required"/></td>
+									<td><input type="text" id="second" name="second" class="text-input customerReset required numeric" maxlength="1" placeHolder="Enter Second"/></td>
 								</tr>
                        		</table>
                        	</td>

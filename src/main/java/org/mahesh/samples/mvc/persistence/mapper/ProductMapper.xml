@@ -18,7 +18,7 @@
    <select id="getProducts" parameterType="productParams" resultMap="resultResources"
       useCache="true">
       SELECT SQL_CALC_FOUND_ROWS * FROM 
-		PRODUCT LIMIT #{firstRow}, #{lastRow}      
+		PRODUCT ORDER BY PROD_ID DESC LIMIT #{firstRow}, #{lastRow}     
    </select>
    
    <select id="countTotalProducts" parameterType="productParams" resultType="java.lang.Long"

@@ -28,7 +28,7 @@
 						<tr>
 							<td>Product Name:</td>
 							<td>
-								<input type="text" id="name" name="name" class="text-input required productReset"/>
+								<input type="text" id="name" name="name" class="text-input required productReset" maxlength="100" placeHolder="Enter Product Name"/>
 								<input id="id" name="id" type="hidden" readonly="readonly" />
 							</td>
 						</tr>
@@ -40,23 +40,23 @@
 						</tr>
 						<tr>
 							<td>Product Desc:</td>
-							<td><input type="text" id="desc" name="desc" class="text-input productReset" /></td>
+							<td><input type="text" id="desc" name="desc" class="text-input productReset" maxlength="200" placeHolder="Enter Product Desc."/></td>
 						</tr>
 						<tr>
 							<td>Short Desc:</td>
-							<td><input type="text" id="shortDesc" name="shortDesc" class="text-input productReset"/></td>
+							<td><input type="text" id="shortDesc" name="shortDesc" class="text-input productReset" maxlength="10" placeHolder="Enter Short Desc."/></td>
 						</tr>
 						<tr>
 							<td>Unit:</td>
-							<td><input type="text" id="unit"  name="unit" class="text-input productReset required" /></td>
+							<td><input type="text" id="unit"  name="unit" class="text-input productReset required numeric" maxlength="5" placeHolder="Enter Unit"/></td>
 						</tr>
 						<tr>
 							<td>Under:</td>
-							<td><input type="text" id="under" name="under" class="text-input productReset required"/></td>
+							<td><input type="text" id="under" name="under" class="text-input productReset required" maxlength="10" placeHolder="Enter Under"/></td>
 						</tr>
 						<tr>
 							<td>Tariff Code:</td>
-							<td><input type="text" id="tariffCode" name="tariffCode" class="text-input productReset required"/></td>
+							<td><input type="text" id="tariffCode" name="tariffCode" class="text-input productReset required" maxlength="10" placeHolder="Enter Tariff Code"/></td>
 						</tr>
 						<tr><td colspan="2"></td></tr>
 						<tr>

@@ -29,7 +29,7 @@
    <select id="getCustomers" parameterType="CustomerParams" resultMap="resultResources"
       useCache="true">
       SELECT SQL_CALC_FOUND_ROWS * FROM 
-		CUSTOMER LIMIT #{firstRow}, #{lastRow}      
+		CUSTOMER ORDER BY CUST_ID DESC LIMIT #{firstRow}, #{lastRow}      
    </select>
    
    <select id="countTotalCustomers" parameterType="CustomerParams" resultType="java.lang.Long"
