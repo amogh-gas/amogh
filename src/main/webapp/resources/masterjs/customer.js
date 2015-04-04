@@ -243,8 +243,6 @@ $(document).ready(function() {
 	var vParams = {};
 	vParams.content = 'customerWindow';
 	var newWoFns = function() {};
-	alert(vParams)
-	alert(newWoFns)
 	$.CommonComponent.Validation(vParams, new newWoFns());
 	$('#customerWindow').on('validationSuccess', function (event) {
 		saveCustomer();
