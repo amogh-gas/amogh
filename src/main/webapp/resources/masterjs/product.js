@@ -202,9 +202,9 @@ $(document).ready(function() {
             }
         };
         function _createElements() {
-            $('#showWindowButton').jqxButton({ width: '80px',theme:CONSTANT.THEME});
-            $('#customWindow').jqxWindow({  animationType: 'combined',showCollapseButton: true,theme:CONSTANT.THEME,width: '26%',
-                height: '45%', resizable: true, autoOpen: false, isModal: true, 
+            $('#showWindowButton').jqxButton({ width: '60px',theme:CONSTANT.THEME});
+            $('#customWindow').jqxWindow({  animationType: 'combined',showCollapseButton: true,theme:CONSTANT.THEME,width: '260px',
+                height: '240px', resizable: true, autoOpen: false, isModal: true, 
                 cancelButton: $('#cancelButton'),
                 initContent: function () {
                     $('#saveButton').jqxButton({ width: '80px', disabled: true });
@@ -250,7 +250,7 @@ $(document).ready(function() {
 	};
 	var menuDataAdapter = new $.jqx.dataAdapter(menuSource);
 	// Create a jqxDropDownList
-	$("#customWindow #typeId").jqxDropDownList({ theme:CONSTANT.THEME,source: menuDataAdapter, selectedIndex: 0, dropDownHeight:100, dropDownHorizontalAlignment:'left', width: '97%', height: '26',displayMember: 'name',
+	$("#customWindow #typeId").jqxDropDownList({ theme:CONSTANT.THEME,source: menuDataAdapter, selectedIndex: 0, dropDownHeight:80, dropDownHorizontalAlignment:'left', width: '127px', height: '18px',displayMember: 'name',
 		valueMember: 'id'});
 	
 	$('#customWindow .jqx-dropdownlist-content').each(function(){

@@ -37,7 +37,8 @@
 	    <!-- ################################################################################################ -->
 	    <nav>
 		   <ul>
-				<li><a href="#">Home</a></li>
+		   		<li> <u>Logged in as <b><i>${currentUser}</i></b></u></li>
+				<li><a href="/amogh">Home</a></li>
 				<c:if test="${not empty currentUser}">
 					<li><a
 						href="${pageContext.request.contextPath}/j_spring_security_logout">Logout</a></li>

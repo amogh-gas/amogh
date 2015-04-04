@@ -35,7 +35,7 @@
 						<tr>
 							<td>Product Type:</td>
 							<td>
-								<div id="typeId" class="rounded jqx-dropdownlist-content required"></div>
+								<div id="typeId" class="rounded jqx-dropdownlist-content required" style="height:20px;"></div>
 							</td>
 						</tr>
 						<tr>

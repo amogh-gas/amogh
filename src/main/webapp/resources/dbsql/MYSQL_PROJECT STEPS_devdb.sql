@@ -116,10 +116,10 @@ create table SUPPLIER  (
 
 
 
-Insert into MENU_DETAILS (MENU_PK,MENU_DESC,PARENT_MENU_ID,MENU_URL) values (1,'Master','-1','./customerMain');
-Insert into MENU_DETAILS (MENU_PK,MENU_DESC,PARENT_MENU_ID,MENU_URL) values (2,'Sales','-1','./salesMain');
-Insert into MENU_DETAILS (MENU_PK,MENU_DESC,PARENT_MENU_ID,MENU_URL) values (3,'Purchases','-1','./purchaseMain');
-Insert into MENU_DETAILS (MENU_PK,MENU_DESC,PARENT_MENU_ID,MENU_URL) values (4,'Report','-1','./reportMain');
+Insert into MENU_DETAILS (MENU_PK,MENU_DESC,PARENT_MENU_ID,MENU_URL) values (1,'Master','-1','#');
+Insert into MENU_DETAILS (MENU_PK,MENU_DESC,PARENT_MENU_ID,MENU_URL) values (2,'Sales','-1','#');
+Insert into MENU_DETAILS (MENU_PK,MENU_DESC,PARENT_MENU_ID,MENU_URL) values (3,'Purchases','-1','#');
+Insert into MENU_DETAILS (MENU_PK,MENU_DESC,PARENT_MENU_ID,MENU_URL) values (4,'Report','-1','#');
 Insert into MENU_DETAILS (MENU_PK,MENU_DESC,PARENT_MENU_ID,MENU_URL) values (5,'Menu Maintainance','-1','./menu');
 
 Insert into MENU_DETAILS (MENU_PK,MENU_DESC,PARENT_MENU_ID,MENU_URL) values (101,'Customer Mastar','1','./customer');
