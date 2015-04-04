@@ -25,15 +25,23 @@ h3 {
  */
 p.mainMenuId {
     font-family:initial;
-    font-size:11px;
+    font-size:10px;
     background-color:#e0e9f5;
     padding-left:2px;
     top:inherit;
     }
 .jqx-widget-energyblue {
-    font-size: 11px;
+    font-size: 10px;
     font-family: 'segoe ui', arial, sans-serif;
 }
 .jqx-widget-content-energyblue{font-size: 10px; font-family: 'segoe ui', arial, sans-serif;color:balck; }
 .jqx-widget-header-energyblue{font-size: 10px; font-family: 'segoe ui', arial, sans-serif;color:balck;}
-.jqx-fill-state-normal-energyblue, .jqx-fill-state-hover-energyblue, .jqx-fill-state-pressed-energyblue{font-size: 11px; font-family: 'segoe ui', arial, sans-serif; }
+.jqx-fill-state-normal-energyblue, .jqx-fill-state-hover-energyblue, .jqx-fill-state-pressed-energyblue{font-size: 10px; font-family: 'segoe ui', arial, sans-serif; }
+
+.jqx-widget-hover-energyblue {
+    font-size: 10px;
+    font-family: 'segoe ui', arial, sans-serif;
+}
+.jqx-widget-content-hover-energyblue{font-size: 10px; font-family: 'segoe ui', arial, sans-serif;color:balck; }
+.jqx-widget-header-hover-energyblue{font-size: 10px; font-family: 'segoe ui', arial, sans-serif;color:balck;}
+.jqx-fill-state-normal-hover-energyblue, .jqx-fill-state-hover-energyblue, .jqx-fill-state-pressed-hover-energyblue{font-size: 10px; font-family: 'segoe ui', arial, sans-serif; }
