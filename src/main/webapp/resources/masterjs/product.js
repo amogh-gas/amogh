@@ -213,7 +213,8 @@ $(document).ready(function() {
             });
         };
         $('#customWindow').on('close', function(){
-            $('.jqx-validator-hint').remove();
+        	//close all error displays
+            $('.jqx-validator-hint').click();
         });
         return {
             init: function () {
