@@ -52,8 +52,8 @@
 	  <header id="header" class="clear"> 
 	    <!-- ################################################################################################ -->
 	    <div id="logo" class="fl_left">
-	      <h1><a href="<c:url value="/" />">amogh</a></h1>
-	      <p>Section for ${param.pageTitle} Maintenance</p>
+	      <h1><a href="<c:url value="/"/>">Amogh Gases Pvt Ltd</a></h1>
+	      <p style="font-size:x-small;">9A KIADB Industrial Area Hirehalli Village, Tumkur, Karnataka-572104</p>
 	    </div>
 	    <div class="fl_right">  
 	      <form class="clear" method="post" action="#">

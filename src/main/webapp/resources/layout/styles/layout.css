@@ -36,7 +36,7 @@ File: Layout CSS
 #header{}
 
 #header #logo{}
-#header #logo h1{margin:0 0 8px 0; padding:0; font-size:36px; line-height:12px; font-variant:small-caps; font-style:normal;}
+#header #logo h1{margin:0 0 8px 0; padding:0; font-size:20px; line-height:1px; font-variant:small-caps; font-style:normal;}
 #header #logo p{margin:0; padding:0;}
 
 #header form{display:block; position:relative; width:100%;}
@@ -368,7 +368,7 @@ table a, #comments a{background-color:inherit;} */
 ---------------------------------------------------------------------------------------------------------------------------------------*/
 @media screen and (min-width:180px) and (max-width:750px) {
 	.imgl, .imgr{display:inline-block; float:none; margin:0 0 10px 0;}
-	.fl_left, .fl_right{display:block; float:none;}
+	.fl_left, .fl_right{display:block; float:none; font-size:x-small}
 	.one_half, .one_third, .two_third, .one_quarter, .two_quarter, .three_quarter{display:block; float:none; width:auto; margin:0 0 30px 0; padding:0;}
 }
 
@@ -378,7 +378,7 @@ table a, #comments a{background-color:inherit;} */
 	#topbar{text-align:center;}
 
 	#header #logo{margin-bottom:15px; text-align:center;}
-	#header #logo h1{margin:0; line-height:1em;}
+	#header #logo h1{margin:0; line-height:1em; font-size:25px;}
 	#header form{max-width:250px; margin:0 auto;}
 	#header input{min-width:0;}
 
