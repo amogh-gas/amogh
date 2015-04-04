@@ -4,7 +4,7 @@ $(document).ready(function() {
 	var header = $("meta[name='_csrf_header']").attr("content");
 
 	/******** Retrieve Code over ******/
-	var source =
+	var productGridSource =
 	{		
 			contentType : 'application/json',
 			datatype: "json",
@@ -27,11 +27,11 @@ $(document).ready(function() {
 			            	 req.setRequestHeader(header, token);
 			             },
 			             beforeprocessing: function (data) {
-			            	source.totalrecords = data.result.totalRows;
+			            	 productGridSource.totalrecords = data.result.totalRows;
 			             }       
 	};
 
-	var dataadapter = new $.jqx.dataAdapter(source,
+	var productGridDataAdapter = new $.jqx.dataAdapter(productGridSource,
 			{
 		formatData: function (data) {
 			return JSON.stringify(data);
@@ -44,7 +44,7 @@ $(document).ready(function() {
 			{    
 				width: '99.5%',
 				selectionmode: 'rowselect',
-				source: dataadapter,
+				source: productGridDataAdapter,
 				theme: CONSTANT.THEME,
 				autoheight: true,
 				pageable: true,
@@ -232,8 +232,8 @@ $(document).ready(function() {
     
     
     /***** Drop Down list for product Type*****/
- // prepare the data
-	var source =
+    // prepare the data
+	var menuSource =
 	{
 		datatype: "json",
 		datafields: [
@@ -248,9 +248,9 @@ $(document).ready(function() {
 		type: "POST",
 		async: false
 	};
-	var dataAdapter = new $.jqx.dataAdapter(source);
+	var menuDataAdapter = new $.jqx.dataAdapter(menuSource);
 	// Create a jqxDropDownList
-	$("#customWindow #typeId").jqxDropDownList({ theme:CONSTANT.THEME,source: dataAdapter, selectedIndex: 0, dropDownHeight:100, dropDownHorizontalAlignment:'left', width: '97%', height: '26',displayMember: 'name',
+	$("#customWindow #typeId").jqxDropDownList({ theme:CONSTANT.THEME,source: menuDataAdapter, selectedIndex: 0, dropDownHeight:100, dropDownHorizontalAlignment:'left', width: '97%', height: '26',displayMember: 'name',
 		valueMember: 'id'});
 	
 	$('#customWindow .jqx-dropdownlist-content').each(function(){
