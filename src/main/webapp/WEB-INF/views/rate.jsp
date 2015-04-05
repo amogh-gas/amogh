@@ -36,81 +36,88 @@
 									</td>
 								</tr>
                        			<tr>
-									<td>Address:</td>
-									<td><input type="text" id="address" name="address" class="text-input rateReset" maxlength="200" placeHolder="Enter Address"/></td>
+                       				<td>Customer:</td>
+									<td>
+										<div id="custId" class="rounded jqx-dropdownlist-content required" style="height:20px;"></div>
+									</td>
 								</tr>
 								<tr>
-									<td>Area:</td>
-									<td><input type="text" id="area" name="area" class="text-input rateReset" maxlength="50" placeHolder="Enter Area"/></td>
+									<td>Product:</td>
+									<td>
+										<div id="prodId" class="rounded jqx-dropdownlist-content required" style="height:20px;"></div>
+									</td>
 								</tr>
 								<tr>
-									<td>State:</td>
-									<td><input type="text" id="state"  name="state" class="text-input rateReset required" maxlength="20" placeHolder="Enter State"/></td>
+									<td>Rate Per Num:</td>
+									<td><input type="text" id="ratePerNo"  name="ratePerNo" class="text-input rateReset required" maxlength="20" placeHolder="Enter Rate Per No"/></td>
 								</tr>
 								<tr>
-									<td>Email:</td>
-									<td><input type="text" id="email" name="email" class="text-input rateReset required" maxlength="50" placeHolder="Enter Email"/></td>
+									<td>Rate Per Ltr:</td>
+									<td><input type="text" id="ratePerLtr" name="ratePerLtr" class="text-input rateReset required" maxlength="50" placeHolder="Enter Rate Per Ltr"/></td>
 								</tr>
 								<tr>
-									<td nowrap="nowrap">Contact Person 1:</td>
-									<td><input type="text" id="contactPerson1" name="contactPerson1" class="text-input rateReset required" maxlength="30" placeHolder="Enter Contact Person 1"/></td>
+									<td nowrap="nowrap">Rate Per Cubic Mtr:</td>
+									<td><input type="text" id="ratePerCubMtr" name="ratePerCubMtr" class="text-input rateReset required" maxlength="30" placeHolder="Enter Rate Per Cub Mtr"/></td>
 								</tr>
 								<tr>
-									<td>Contact Person 2:</td>
-									<td><input type="text" id="contactPerson2" name="contactPerson2" class="text-input rateReset required" maxlength="30" placeHolder="Enter Contact Person 2"/></td>
+									<td>Rate Per Kg:</td>
+									<td><input type="text" id="ratePerKg" name="ratePerKg" class="text-input rateReset required" maxlength="30" placeHolder="Enter Rate Per Kg"/></td>
 								</tr>
 								<tr>
-									<td>Phone:</td>
-									<td><input type="text" id="phone" name="phone" class="text-input rateReset required" maxlength="20" placeHolder="Enter Phone Number"/></td>
+									<td>Excise Rate:</td>
+									<td><input type="text" id="exciseRate" name="exciseRate" class="text-input rateReset required" maxlength="20" placeHolder="Enter Excise Rate"/></td>
 								</tr>
 								<tr>
-									<td>Holding Advice:</td>
-									<td><input type="text" id="holdingAdvice" name="holdingAdvice" class="text-input rateReset required" maxlength="1" placeHolder="Enter Holding Advice"/></td>
+									<td nowrap="nowrap">Supplementry Invoice:</td>
+									<td><input type="text" id="supplementryInvoice" name="supplementryInvoice" class="text-input rateReset required numeric" maxlength="4" placeHolder="Enter Supplementry Invoic"/></td>
 								</tr>
 								<tr>
-									<td>Credit Days:</td>
-									<td><input type="text" id="creditDays" name="creditDays" class="text-input rateReset required numeric" maxlength="4" placeHolder="Enter Credit Days"/></td>
-								</tr>
+									<td>Cess Excise:</td>
+									<td><input type="text" id="cessExcise" name="cessExcise" class="text-input rateReset required" maxlength="20" placeHolder="Enter Cess Excise"/></td>
+								</tr>								
                        		</table>		
                        	</td>
                        	<td> 
                        		<table>
-                       			<tr><td colspan="2"/></tr>
 								<tr>
-									<td>Primary Mobile:</td>
-									<td><input type="text" id="priMobile" name="priMobile" class="text-input rateReset" maxlength="20" placeHolder="Enter Primary Mobile Number"/></td>
+									<td>Education Cess:</td>
+									<td><input type="text" id="eduCess" name="eduCess" class="text-input rateReset required numeric" maxlength="4" placeHolder="Enter Edu Cess"/></td>
 								</tr>
 								<tr>
-									<td nowrap="nowrap">Secondary Mobile:</td>
-									<td><input type="text" id="secMobile"  name="secMobile" class="text-input rateReset required" maxlength="20" placeHolder="Enter Secondary Mobile Number"/></td>
+									<td>Frieght:</td>
+									<td><input type="text" id="frieght" name="frieght" class="text-input rateReset" maxlength="20" placeHolder="Enter Frieght"/></td>
 								</tr>
 								<tr>
-									<td>TIN Number:</td>
-									<td><input type="text" id="tinNum" name="tinNum" class="text-input rateReset required numeric" maxlength="20" placeHolder="Enter TIN Number"/></td>
+									<td>Loading Chrgs:</td>
+									<td><input type="text" id="loadingChrgs"  name="loadingChrgs" class="text-input rateReset required" maxlength="20" placeHolder="Enter Loading Chrgs"/></td>
 								</tr>
 								<tr>
-									<td>CST Number:</td>
-									<td><input type="text" id="cstNum" name="cstNum" class="text-input rateReset required numeric" maxlength="20" placeHolder="Enter CST Number"/></td>
+									<td>Unloading Chrgs:</td>
+									<td><input type="text" id="unloadingChrgs" name="unloadingChrgs" class="text-input rateReset required numeric" maxlength="20" placeHolder="Enter Unloading Chrgs"/></td>
 								</tr>
 								<tr>
-									<td>PAN Number:</td>
-									<td><input type="text" id="panNum" name="panNum" class="text-input rateReset required" maxlength="20" placeHolder="Enter PAN Number"/></td>
+									<td>Without Excise:</td>
+									<td><input type="text" id="withoutExcise" name="withoutExcise" class="text-input rateReset required numeric" maxlength="20" placeHolder="Enter Without Excise"/></td>
 								</tr>
 								<tr>
-									<td>ECC Number:</td>
-									<td><input type="text" id="eCCNum" name="eCCNum" class="text-input rateReset required numeric" maxlength="20" placeHolder="Enter ECC Number"/></td>
+									<td>Srvc Tax Flag:</td>
+									<td><input type="text" id="srvcTaxFlag" name="srvcTaxFlag" class="text-input rateReset required" maxlength="20" placeHolder="Enter Srvc Tax Flag"/></td>
 								</tr>
 								<tr>
-									<td>Max Cylinder:</td>
-									<td><input type="text" id="maxCylinder" name="maxCylinder" class="text-input rateReset required numeric" maxlength="4" placeHolder="Enter Max Cylinder"/></td>
+									<td>Srvc Tax:</td>
+									<td><input type="text" id="srvcTax" name="srvcTax" class="text-input rateReset required numeric" maxlength="20" placeHolder="Enter Srvc Tax"/></td>
+								</tr>								
+								<tr>
+									<td>VAT:</td>
+									<td><input type="text" id="vat" name="vat" class="text-input rateReset required numeric" maxlength="4" placeHolder="Enter VAT"/></td>
 								</tr>
 								<tr>
-									<td>Min Cylinder:</td>
-									<td><input type="text" id="minCylinder" name="minCylinder" class="text-input rateReset required numeric" maxlength="4" placeHolder="Enter Min Cylinder"/></td>
+									<td>Cst With CForm:</td>
+									<td><input type="text" id="cstWithCForm" name="cstWithCForm" class="text-input rateReset required numeric" maxlength="1" placeHolder="Enter Cst With CForm"/></td>
 								</tr>
 								<tr>
-									<td>second:</td>
-									<td><input type="text" id="second" name="second" class="text-input rateReset required numeric" maxlength="1" placeHolder="Enter Second"/></td>
+									<td nowrap="nowrap">Cst Without CForm:</td>
+									<td><input type="text" id="cstWithoutCForm" name="cstWithoutCForm" class="text-input rateReset required numeric" maxlength="1" placeHolder="Enter Cst With Cst Without CForm"/></td>
 								</tr>
                        		</table>
                        	</td>

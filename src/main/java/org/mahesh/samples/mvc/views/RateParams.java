@@ -7,6 +7,7 @@ public class RateParams extends PaginationParams implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	private long id;
+	private String name;
 	private long custId;
 	private long prodId;
 	private BigDecimal ratePerNo;
@@ -17,12 +18,12 @@ public class RateParams extends PaginationParams implements Serializable{
 	private BigDecimal cessExcise;
 	private BigDecimal eduCess;
 	private BigDecimal frieght;
-	private BigDecimal loading_chrgs;
+	private BigDecimal loadingChrgs;
 	private BigDecimal unloadingChrgs;
 	private String withoutExcise;
 	private String srvcTaxFlag;
 	private BigDecimal srvcTax;
-	private String supplementryInvoic;
+	private String supplementryInvoice;
 	private BigDecimal vat;
 	private BigDecimal cstWithCForm;
 	private BigDecimal cstWithoutCForm;
@@ -33,6 +34,12 @@ public class RateParams extends PaginationParams implements Serializable{
 	}
 	public void setId(long id) {
 		this.id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
 	}
 	public long getCustId() {
 		return custId;
@@ -94,11 +101,11 @@ public class RateParams extends PaginationParams implements Serializable{
 	public void setFrieght(BigDecimal frieght) {
 		this.frieght = frieght;
 	}
-	public BigDecimal getLoading_chrgs() {
-		return loading_chrgs;
+	public BigDecimal getLoadingChrgs() {
+		return loadingChrgs;
 	}
-	public void setLoading_chrgs(BigDecimal loading_chrgs) {
-		this.loading_chrgs = loading_chrgs;
+	public void setLoadingChrgs(BigDecimal loadingChrgs) {
+		this.loadingChrgs = loadingChrgs;
 	}
 	public BigDecimal getUnloadingChrgs() {
 		return unloadingChrgs;
@@ -124,11 +131,11 @@ public class RateParams extends PaginationParams implements Serializable{
 	public void setSrvcTax(BigDecimal srvcTax) {
 		this.srvcTax = srvcTax;
 	}
-	public String getSupplementryInvoic() {
-		return supplementryInvoic;
+	public String getSupplementryInvoice() {
+		return supplementryInvoice;
 	}
-	public void setSupplementryInvoic(String supplementryInvoic) {
-		this.supplementryInvoic = supplementryInvoic;
+	public void setSupplementryInvoice(String supplementryInvoice) {
+		this.supplementryInvoice = supplementryInvoice;
 	}
 	public BigDecimal getVat() {
 		return vat;
@@ -161,10 +168,10 @@ public class RateParams extends PaginationParams implements Serializable{
 				+ ratePerLtr + ", ratePerCubMtr=" + ratePerCubMtr
 				+ ", ratePerKg=" + ratePerKg + ", exciseRate=" + exciseRate
 				+ ", cessExcise=" + cessExcise + ", eduCess=" + eduCess
-				+ ", frieght=" + frieght + ", loading_chrgs=" + loading_chrgs
+				+ ", frieght=" + frieght + ", loadingChrgs=" + loadingChrgs
 				+ ", unloadingChrgs=" + unloadingChrgs + ", withoutExcise="
 				+ withoutExcise + ", srvcTaxFlag=" + srvcTaxFlag + ", srvcTax="
-				+ srvcTax + ", supplementryInvoic=" + supplementryInvoic
+				+ srvcTax + ", supplementryInvoice=" + supplementryInvoice
 				+ ", vat=" + vat + ", cstWithCForm=" + cstWithCForm
 				+ ", cstWithoutCForm=" + cstWithoutCForm + ", saveType="
 				+ saveType + "]";

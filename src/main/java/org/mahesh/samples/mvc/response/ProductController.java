@@ -69,6 +69,26 @@ public class ProductController {
 	}
 
 	/**
+	 * Returns the list of products
+	 * @return List of products
+	 */
+	@RequestMapping(value = "/getAllProducts", method = RequestMethod.POST)
+	@ResponseBody
+	public final ResponseJSON getAllProducts() {
+		final ResponseJSON mResponseJSON = new ResponseJSON();
+		try {
+			mResponseJSON.setResult(productService.getAllProducts());
+			mResponseJSON.setStatus("SUCCESS");
+		} catch (Exception e) {
+			LOGGER.log(Level.SEVERE, "There is unknown exception from ProductController while getting the product details ", e);
+			mResponseJSON.setStatus("FAILURE");
+			mResponseJSON.setMessage("There is unknown exception from ProductTypeController while getting the product type details");
+		}
+
+		return mResponseJSON;
+	}
+	
+	/**
 	 * Adds the resouce details.
 	 * 
 	 * @param resourceDetails

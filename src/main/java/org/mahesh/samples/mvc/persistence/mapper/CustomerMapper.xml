@@ -95,4 +95,10 @@
       DELETE FROM CUSTOMER 
       where CUST_ID = #{id,jdbcType=NUMERIC}
    </delete>
+   
+   <select id="getAllCustomers" resultMap="resultResources"
+      useCache="true">
+      SELECT * FROM 
+		CUSTOMER
+   </select>
 </mapper>

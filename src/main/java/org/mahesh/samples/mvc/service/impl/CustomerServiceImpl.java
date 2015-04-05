@@ -7,6 +7,7 @@ import java.util.logging.Logger;
 import org.mahesh.samples.mvc.persistence.CustomerMapper;
 import org.mahesh.samples.mvc.service.CustomerService;
 import org.mahesh.samples.mvc.views.CustomerParams;
+import org.mahesh.samples.mvc.views.ProductParams;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -64,5 +65,13 @@ public class CustomerServiceImpl implements CustomerService {
 		customerMapper.removeCustomer(params);
 		LOGGER.exiting(LOGGING_CLASS_NAME, ": removeCustomer");
 		
+	}
+	
+	@Override
+	public List<CustomerParams> getAllCustomers() {
+		LOGGER.entering(LOGGING_CLASS_NAME, ": getAllCustomers");
+		List<CustomerParams> list = customerMapper.getAllCustomers();
+		LOGGER.exiting(LOGGING_CLASS_NAME, ": getAllCustomer");
+		return list;
 	}
 }

@@ -15,5 +15,7 @@ public interface ProductService {
 	void updateProduct(ProductParams params);
 	
 	void removeProduct(ProductParams params);
+	
+	List<ProductParams> getAllProducts();
 
 }

@@ -15,4 +15,6 @@ public interface ProductMapper {
 	void updateProduct(ProductParams params);
 	
 	void removeProduct(ProductParams params);
+	
+	List<ProductParams> getAllProducts();
 }

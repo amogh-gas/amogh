@@ -20,7 +20,7 @@
 	  <result property="withoutExcise" column="WITHOUT_EXCISE" />
 	  <result property="srvcTaxFlag" column="SRVC_TAX_FLAG " />
 	  <result property="srvcTax" column="SRVC_TAX" />
-	  <result property="supplementryInvoic" column="SUPPLEMENTRY_INVOIC" />
+	  <result property="supplementryInvoice" column="SUPPLEMENTRY_INVOIC" />
 	  <result property="vat" column="VAT" />
 	  <result property="cstWithCForm" column="CST_WITH_CFORM" />
 	  <result property="cstWithoutCForm" column="CST_WITHOUT_CFORM" />      
@@ -55,12 +55,12 @@
 		#{cessExcise,jdbcType=DECIMAL},
 		#{eduCess,jdbcType=DECIMAL},
 		#{frieght,jdbcType=DECIMAL},
-		#{loading_chrgs,jdbcType=DECIMAL},
+		#{loadingChrgs,jdbcType=DECIMAL},
 		#{unloadingChrgs,jdbcType=DECIMAL},
 		#{withoutExcise,jdbcType=VARCHAR},
 		#{srvcTaxFlag,jdbcType=VARCHAR},
 		#{srvcTax,jdbcType=DECIMAL},
-		#{supplementryInvoic,jdbcType=VARCHAR},
+		#{supplementryInvoice,jdbcType=VARCHAR},
 		#{vat,jdbcType=DECIMAL},
 		#{cstWithCForm,jdbcType=DECIMAL},
 		#{cstWithoutCForm,jdbcType=DECIMAL})
@@ -78,12 +78,12 @@
 		CESS_EXCISE = #{cessExcise,jdbcType=DECIMAL},
 		EDU_CESS = #{eduCess,jdbcType=DECIMAL},
 		FRIEGHT = #{frieght,jdbcType=DECIMAL},
-		LOADING_CHRGS = #{loading_chrgs,jdbcType=DECIMAL},
+		LOADING_CHRGS = #{loadingChrgs,jdbcType=DECIMAL},
 		UNLOADING_CHRGS = #{unloadingChrgs,jdbcType=DECIMAL},
 		WITHOUT_EXCISE = #{withoutExcise,jdbcType=VARCHAR},
 		SRVC_TAX_FLAG = #{srvcTaxFlag,jdbcType=VARCHAR},
 		SRVC_TAX = #{srvcTax,jdbcType=DECIMAL},
-		SUPPLEMENTRY_INVOIC = #{supplementryInvoic,jdbcType=VARCHAR},
+		SUPPLEMENTRY_INVOIC = #{supplementryInvoice,jdbcType=VARCHAR},
 		VAT = #{vat,jdbcType=DECIMAL},
 		CST_WITH_CFORM = #{cstWithCForm,jdbcType=DECIMAL},
 		CST_WITHOUT_CFORM = #{cstWithoutCForm,jdbcType=DECIMAL}
@@ -91,7 +91,7 @@
    </update>
    
    <delete id="removeRate" parameterType="map">      
-      DELETE FROM RATW 
+      DELETE FROM RATE
       where RATE_ID = #{id,jdbcType=NUMERIC}
    </delete>
 </mapper>

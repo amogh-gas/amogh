@@ -50,6 +50,26 @@ public class CustomerController {
 		
 		return mResponseJSON;
 	}
+	
+	/**
+	 * Returns the list of Customers
+	 * @return List of customers
+	 */
+	@RequestMapping(value = "/getAllCustomers", method = RequestMethod.POST)
+	@ResponseBody
+	public final ResponseJSON getAllCustomers() {
+		final ResponseJSON mResponseJSON = new ResponseJSON();
+		try {
+			mResponseJSON.setResult(customerService.getAllCustomers());
+			mResponseJSON.setStatus("SUCCESS");
+		} catch (Exception e) {
+			LOGGER.log(Level.SEVERE, "There is unknown exception from ProductController while getting the product details ", e);
+			mResponseJSON.setStatus("FAILURE");
+			mResponseJSON.setMessage("There is unknown exception from ProductTypeController while getting the product type details");
+		}
+
+		return mResponseJSON;
+	}	
 
 	/**
 	 * Create a new customer to the table

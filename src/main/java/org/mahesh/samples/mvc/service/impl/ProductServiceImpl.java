@@ -7,6 +7,7 @@ import java.util.logging.Logger;
 import org.mahesh.samples.mvc.persistence.ProductMapper;
 import org.mahesh.samples.mvc.service.ProductService;
 import org.mahesh.samples.mvc.views.ProductParams;
+import org.mahesh.samples.mvc.views.ProductTypeParams;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -73,6 +74,14 @@ public class ProductServiceImpl implements ProductService {
 		productMapper.removeProduct(params);
 		LOGGER.exiting(LOGGING_CLASS_NAME, ": removeProduct");
 		
+	}
+	
+	@Override
+	public List<ProductParams> getAllProducts() {
+		LOGGER.entering(LOGGING_CLASS_NAME, ": getAllProducts");
+		List<ProductParams> list = productMapper.getAllProducts();
+		LOGGER.exiting(LOGGING_CLASS_NAME, ": getAllProducts");
+		return list;
 	}
 
 }

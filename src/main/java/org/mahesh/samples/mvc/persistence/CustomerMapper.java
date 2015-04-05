@@ -15,4 +15,6 @@ public interface CustomerMapper {
 	void updateCustomer(CustomerParams params);
 	
 	void removeCustomer(CustomerParams params);
+	
+	List<CustomerParams> getAllCustomers();
 }

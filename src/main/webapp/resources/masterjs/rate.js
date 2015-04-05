@@ -10,25 +10,26 @@ $(document).ready(function() {
 			datatype: "json",
 			datafields: [
 			             	{ name: 'id' },
-							{ name: 'name' }/*,
-							{ name: 'address' },
-							{ name: 'area' },
-							{ name: 'state' },
-							{ name: 'email' },
-							{ name: 'phone' },
-							{ name: 'priMobile' },
-							{ name: 'secMobile' },
-							{ name: 'contactPerson1' },
-							{ name: 'contactPerson2' },
-							{ name: 'tinNum' },
-							{ name: 'cstNum' },
-							{ name: 'panNum' },
-							{ name: 'eCCNum' },
-							{ name: 'holdingAdvice' },
-							{ name: 'creditDays' },
-							{ name: 'maxCylinder' },
-							{ name: 'minCylinder' },
-							{ name: 'second' }*/
+							{ name: 'name' },
+							{ name: 'custId' },
+							{ name: 'prodId' },
+							{ name: 'ratePerNo' },
+							{ name: 'ratePerLtr' },
+							{ name: 'ratePerCubMtr' },
+							{ name: 'ratePerKg' },
+							{ name: 'exciseRate' },
+							{ name: 'cessExcise' },
+							{ name: 'eduCess' },
+							{ name: 'frieght' },
+							{ name: 'loadingChrgs' },
+							{ name: 'unloadingChrgs' },
+							{ name: 'withoutExcise' },
+							{ name: 'srvcTaxFlag' },
+							{ name: 'srvcTax' },
+							{ name: 'supplementryInvoice' },
+							{ name: 'vat' },
+							{ name: 'cstWithCForm' },
+							{ name: 'cstWithoutCForm' }
 			             ],
 			             id: 'id',
 			             type: "POST",
@@ -69,24 +70,25 @@ $(document).ready(function() {
 					[
 			          { text: 'id', editable: false, datafield: 'id', hidden: true },
 			          {text:'RATE_NAME',datafield:'name',width:"15%"},
-			          /*{text:'ADDR',datafield:'address',width:"20%"},
-			          {text:'AREA',datafield:'area',width:"10%"},
-			          {text:'STATE',datafield:'state',width:"10%"},
-			          {text:'EMAIL',datafield:'email',width:"15%"},
-			          {text:'PHONE',datafield:'phone',width:"10%"},
-			          {text:'PRI_MOBILE',datafield:'priMobile',width:"10%"},
-			          {text:'SEC_MOBILE',datafield:'secMobile',width:"10%"},
-			          {text:'CONTACT_PERSON 1',datafield:'contactPerson1',width:"15%"},
-			          {text:'CONTACT_PERSON 2',datafield:'contactPerson2',width:"15%"},
-			          {text:'TIN_NUM',datafield:'tinNum',width:"7%"},
-			          {text:'CST_NUM',datafield:'cstNum',width:"7%"},
-			          {text:'PAN_NUM',datafield:'panNum',width:"8%"},
-			          {text:'ECC_NUM',datafield:'eCCNum',width:"7%"},
-			          {text:'HOLDING_ADVICE',datafield:'holdingAdvice',width:"8%"},
-			          {text:'CREDIT_DAYS',datafield:'creditDays',width:"10%"},
-			          {text:'MAX_CYLINDER',datafield:'maxCylinder',width:"10%"},
-			          {text:'MIN_CYLINDER',datafield:'minCylinder',width:"10%"},
-			          {text:'SECOND',datafield:'second',width:"5%"},*/
+			          {text:'CUST_NAME',datafield:'custId',width:"20%"},
+			          {text:'PROD_NAME',datafield:'prodId',width:"10%"},
+			          {text:'RATE_PER_NO',datafield:'ratePerNo',width:"10%"},
+			          {text:'RATE_PER_LTR',datafield:'ratePerLtr',width:"15%"},
+			          {text:'RATE_PER_CUB_MTR',datafield:'ratePerCubMtr',width:"10%"},
+			          {text:'RATE_PER_KG',datafield:'ratePerKg',width:"10%"},
+			          {text:'EXCISE_RATE',datafield:'exciseRate',width:"10%"},
+			          {text:'CESS_EXCISE',datafield:'cessExcise',width:"15%"},
+			          {text:'EDU_CESS',datafield:'eduCess',width:"15%"},
+			          {text:'FRIEGHT',datafield:'frieght',width:"7%"},
+			          {text:'LOADING_CHRGS',datafield:'loadingChrgs',width:"7%"},
+			          {text:'UNLOADING_CHRGS',datafield:'unloadingChrgs',width:"8%"},
+			          {text:'WITHOUT_EXCISE',datafield:'withoutExcise',width:"7%"},
+			          {text:'SRVC_TAX_FLAG',datafield:'srvcTaxFlag',width:"8%"},
+			          {text:'SRVC_TAX',datafield:'srvcTax',width:"10%"},
+			          {text:'SUPPLEMENTRY_INVOIC',datafield:'supplementryInvoice',width:"10%"},
+			          {text:'VAT',datafield:'vat',width:"10%"},
+			          {text:'CST_WITH_CFORM',datafield:'cstWithCForm',width:"5%"},
+			          {text:'CST_WITHOUT_CFORM',datafield:'cstWithoutCForm',width:"5%"},
 			          { text: ' ', datafield: 'Edit', columntype: 'button', width: "5%", cellsrenderer: function () {
 			                return "Edit";
 			            }, buttonclick: function (row) {
@@ -240,6 +242,59 @@ $(document).ready(function() {
     $(document).ready(function () {
         customButtonsDemo.init();
     });
+    
+    
+    /***** Drop Down list for Product*****/
+    // prepare the data
+	var productSource =
+	{
+		datatype: "json",
+		datafields: [
+		{ name: 'id'},
+		{ name: 'name'},
+		],
+		url: './product/getAllProducts',
+		beforeSend: function(req) { 
+			req.setRequestHeader(header, token);
+		},
+		type: "POST",
+		async: false
+	};
+	var productDataAdapter = new $.jqx.dataAdapter(productSource);
+	// Create a jqxDropDownList
+	$("#rateWindow #prodId").jqxDropDownList({ theme:CONSTANT.THEME,source: productDataAdapter, selectedIndex: 0, dropDownHeight:80, dropDownHorizontalAlignment:'left', width: '127px', height: '18px',displayMember: 'name',
+		valueMember: 'id'});
+	
+	$('#rateWindow #prodId .jqx-dropdownlist-content').each(function(){
+		$(this).children().attr("name",$(this).attr('id')).attr("id",$(this).attr('id'));
+	});
+	/***** End Drop Down list for product Type*****/
+	
+	/***** Drop Down list for Customer*****/
+    // prepare the data
+	var customerSource =
+	{
+		datatype: "json",
+		datafields: [
+		{ name: 'id'},
+		{ name: 'name'},
+		],
+		url: './customer/getAllCustomers',
+		beforeSend: function(req) { 
+			req.setRequestHeader(header, token);
+		},
+		type: "POST",
+		async: false
+	};
+	var customerDataAdapter = new $.jqx.dataAdapter(customerSource);
+	// Create a jqxDropDownList
+	$("#rateWindow #custId").jqxDropDownList({ theme:CONSTANT.THEME,source: customerDataAdapter, selectedIndex: 0, dropDownHeight:80, dropDownHorizontalAlignment:'left', width: '127px', height: '18px',displayMember: 'name',
+		valueMember: 'id'});
+	
+	$('#rateWindow #custId .jqx-dropdownlist-content').each(function(){
+		$(this).children().attr("name",$(this).attr('id')).attr("id",$(this).attr('id'));
+	});
+	/***** End Drop Down list for product Type*****/
     
     /*****Start:Rate window validation settings******/
 	var vParams = {};
