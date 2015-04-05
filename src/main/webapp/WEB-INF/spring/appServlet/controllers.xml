@@ -14,6 +14,7 @@
 	<mvc:view-controller path="/menu" view-name="menuMaintenance"/>
 	<mvc:view-controller path="/customer" view-name="customer"/>
 	<mvc:view-controller path="/product" view-name="product"/>
+	<mvc:view-controller path="/rate" view-name="rate"/>
 	
 	<context:component-scan base-package="org.mahesh.samples.mvc" />
 	 

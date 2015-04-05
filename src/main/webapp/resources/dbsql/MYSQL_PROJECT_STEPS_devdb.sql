@@ -62,9 +62,9 @@ create table PRODUCT  (
 constraint PK_PROD primary key (PROD_ID)
    );
 
-drop table if exists RATE_MATSER;
+drop table if exists RATE;
 
-create table RATE_MASTER  (
+create table RATE  (
    RATE_ID              INT    AUTO_INCREMENT,
    CUST_ID              INT                         not null,
    PROD_ID              INT                         not null,
@@ -85,7 +85,7 @@ create table RATE_MASTER  (
    VAT                  DECIMAL(9,2),
    CST_WITH_CFORM       DECIMAL(9,2),
    CST_WITHOUT_CFORM    DECIMAL(9,2),
-constraint PK_RATE_MASTER primary key (RATE_ID)   
+constraint PK_RATE primary key (RATE_ID)   
 );
 
 drop table if exists SUPPLIER;
@@ -122,10 +122,10 @@ Insert into MENU_DETAILS (MENU_PK,MENU_DESC,PARENT_MENU_ID,MENU_URL) values (3,'
 Insert into MENU_DETAILS (MENU_PK,MENU_DESC,PARENT_MENU_ID,MENU_URL) values (4,'Report','-1','#');
 Insert into MENU_DETAILS (MENU_PK,MENU_DESC,PARENT_MENU_ID,MENU_URL) values (5,'Menu Maintainance','-1','./menu');
 
-Insert into MENU_DETAILS (MENU_PK,MENU_DESC,PARENT_MENU_ID,MENU_URL) values (101,'Customer Mastar','1','./customer');
-Insert into MENU_DETAILS (MENU_PK,MENU_DESC,PARENT_MENU_ID,MENU_URL) values (102,'Product Mastar','1','./product');
-Insert into MENU_DETAILS (MENU_PK,MENU_DESC,PARENT_MENU_ID,MENU_URL) values (103,'Rate Mastar','1','./rate');
-Insert into MENU_DETAILS (MENU_PK,MENU_DESC,PARENT_MENU_ID,MENU_URL) values (104,'Supplier Mastar','1','./supplier');
+Insert into MENU_DETAILS (MENU_PK,MENU_DESC,PARENT_MENU_ID,MENU_URL) values (101,'Customer Master','1','./customer');
+Insert into MENU_DETAILS (MENU_PK,MENU_DESC,PARENT_MENU_ID,MENU_URL) values (102,'Product Master','1','./product');
+Insert into MENU_DETAILS (MENU_PK,MENU_DESC,PARENT_MENU_ID,MENU_URL) values (103,'Rate Master','1','./rate');
+Insert into MENU_DETAILS (MENU_PK,MENU_DESC,PARENT_MENU_ID,MENU_URL) values (104,'Supplier Master','1','./supplier');
 
 Insert into PRODUCT_TYPE (TYPE_ID,TYPE_NAME,TYPE_DESC) values (1,'GAS','Gas Type');
 Insert into PRODUCT_TYPE (TYPE_ID,TYPE_NAME,TYPE_DESC) values (2,'OIL','OIL Type');

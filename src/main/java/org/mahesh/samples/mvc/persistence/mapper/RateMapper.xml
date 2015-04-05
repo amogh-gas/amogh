@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.mahesh.samples.mvc.persistence.RateMapper">
+   <resultMap id="resultResources" type="rateParams">   
+      <result property="id" column="RATE_ID" />
+      <result property="custId" column="CUST_ID" />
+	  <result property="prodId" column="PROD_ID" />
+	  <result property="ratePerNo" column="RATE_PER_NO" />
+	  <result property="ratePerLtr" column="RATE_PER_LTR  " />
+	  <result property="ratePerCubMtr" column="RATE_PER_CUB_MTR " />
+	  <result property="ratePerKg" column="RATE_PER_KG" />
+	  <result property="exciseRate" column="EXCISE_RATE" />
+	  <result property="cessExcise" column="CESS_EXCISE" />
+	  <result property="eduCess" column="EDU_CESS" />
+	  <result property="frieght" column="FRIEGHT " />
+	  <result property="loadingChrgs" column="LOADING_CHRGS " />
+	  <result property="unloadingChrgs" column="UNLOADING_CHRGS  " />
+	  <result property="withoutExcise" column="WITHOUT_EXCISE" />
+	  <result property="srvcTaxFlag" column="SRVC_TAX_FLAG " />
+	  <result property="srvcTax" column="SRVC_TAX" />
+	  <result property="supplementryInvoic" column="SUPPLEMENTRY_INVOIC" />
+	  <result property="vat" column="VAT" />
+	  <result property="cstWithCForm" column="CST_WITH_CFORM" />
+	  <result property="cstWithoutCForm" column="CST_WITHOUT_CFORM" />      
+   </resultMap>
+	
+   <select id="getRates" parameterType="rateParams" resultMap="resultResources"
+      useCache="true">
+      SELECT SQL_CALC_FOUND_ROWS * FROM 
+		RATE ORDER BY RATE_ID DESC LIMIT #{firstRow}, #{lastRow}     
+   </select>
+   
+   <select id="countTotalRates" parameterType="rateParams" resultType="java.lang.Long"
+         useCache="true">
+      SELECT FOUND_ROWS() AS 'found_rows'
+   </select>
+   
+   <insert id="insertRate" parameterType="rateParams"
+      useGeneratedKeys="true" keyProperty="rateParams.id"
+      keyColumn="ID">
+      INSERT INTO RATE
+      (RATE_ID, CUST_ID, PROD_ID, RATE_PER_NO, RATE_PER_LTR, RATE_PER_CUB_MTR, RATE_PER_KG, EXCISE_RATE, CESS_EXCISE, EDU_CESS, FRIEGHT, LOADING_CHRGS, 
+      UNLOADING_CHRGS, WITHOUT_EXCISE, SRVC_TAX_FLAG, SRVC_TAX, SUPPLEMENTRY_INVOIC, VAT, CST_WITH_CFORM, CST_WITHOUT_CFORM)
+      VALUES
+      (#{id,jdbcType=NUMERIC},
+		#{custId,jdbcType=NUMERIC},
+		#{prodId,jdbcType=NUMERIC},
+		#{ratePerNo,jdbcType=DECIMAL},
+		#{ratePerLtr,jdbcType=DECIMAL},
+		#{ratePerCubMtr,jdbcType=DECIMAL},
+		#{ratePerKg,jdbcType=DECIMAL},
+		#{exciseRate,jdbcType=DECIMAL},
+		#{cessExcise,jdbcType=DECIMAL},
+		#{eduCess,jdbcType=DECIMAL},
+		#{frieght,jdbcType=DECIMAL},
+		#{loading_chrgs,jdbcType=DECIMAL},
+		#{unloadingChrgs,jdbcType=DECIMAL},
+		#{withoutExcise,jdbcType=VARCHAR},
+		#{srvcTaxFlag,jdbcType=VARCHAR},
+		#{srvcTax,jdbcType=DECIMAL},
+		#{supplementryInvoic,jdbcType=VARCHAR},
+		#{vat,jdbcType=DECIMAL},
+		#{cstWithCForm,jdbcType=DECIMAL},
+		#{cstWithoutCForm,jdbcType=DECIMAL})
+   </insert>
+   
+   <update id="updateRate" parameterType="map">
+      UPDATE RATE SET
+        CUST_ID = #{custId,jdbcType=NUMERIC},
+		PROD_ID = #{prodId,jdbcType=NUMERIC},
+		RATE_PER_NO = #{ratePerNo,jdbcType=DECIMAL},
+		RATE_PER_LTR = #{ratePerLtr,jdbcType=DECIMAL},
+		RATE_PER_CUB_MTR = #{ratePerCubMtr,jdbcType=DECIMAL},
+		RATE_PER_KG = #{ratePerKg,jdbcType=DECIMAL},
+		EXCISE_RATE = #{exciseRate,jdbcType=DECIMAL},
+		CESS_EXCISE = #{cessExcise,jdbcType=DECIMAL},
+		EDU_CESS = #{eduCess,jdbcType=DECIMAL},
+		FRIEGHT = #{frieght,jdbcType=DECIMAL},
+		LOADING_CHRGS = #{loading_chrgs,jdbcType=DECIMAL},
+		UNLOADING_CHRGS = #{unloadingChrgs,jdbcType=DECIMAL},
+		WITHOUT_EXCISE = #{withoutExcise,jdbcType=VARCHAR},
+		SRVC_TAX_FLAG = #{srvcTaxFlag,jdbcType=VARCHAR},
+		SRVC_TAX = #{srvcTax,jdbcType=DECIMAL},
+		SUPPLEMENTRY_INVOIC = #{supplementryInvoic,jdbcType=VARCHAR},
+		VAT = #{vat,jdbcType=DECIMAL},
+		CST_WITH_CFORM = #{cstWithCForm,jdbcType=DECIMAL},
+		CST_WITHOUT_CFORM = #{cstWithoutCForm,jdbcType=DECIMAL}
+      where RATE_ID = #{id,jdbcType=NUMERIC}
+   </update>
+   
+   <delete id="removeRate" parameterType="map">      
+      DELETE FROM RATW 
+      where RATE_ID = #{id,jdbcType=NUMERIC}
+   </delete>
+</mapper>
