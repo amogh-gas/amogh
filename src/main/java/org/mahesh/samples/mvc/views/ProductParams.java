@@ -2,6 +2,8 @@ package org.mahesh.samples.mvc.views;
 
 import java.io.Serializable;
 
+import org.mahesh.samples.mvc.domain.security.LovNode;
+
 public class ProductParams extends PaginationParams implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
@@ -14,6 +16,7 @@ public class ProductParams extends PaginationParams implements Serializable{
 	private String under;
 	private String tariffCode;
 	private String saveType;
+	private LovNode productType;
 	
 	public long getId() {
 		return id;
@@ -75,6 +78,12 @@ public class ProductParams extends PaginationParams implements Serializable{
 	}
 	public void setSaveType(String saveType) {
 		this.saveType = saveType;
+	}
+	public LovNode getProductType() {
+		return productType;
+	}
+	public void setProductType(LovNode productType) {
+		this.productType = productType;
 	}
 	
 	

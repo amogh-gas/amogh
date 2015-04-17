@@ -12,7 +12,8 @@ $(document).ready(function() {
 			datafields: [
 			             { name: 'id' },
 			             { name: 'name' },
-			             { name: 'typeId' },
+			             { name: 'typeId',  map: 'productType>id' },
+			             {name: 'typeDesc',  map: 'productType>nodeDesc'},
 			             { name: 'desc' },
 			             { name: 'shortDesc' },
 			             { name: 'unit' },
@@ -56,7 +57,8 @@ $(document).ready(function() {
 					[
 			          { text: 'id', editable: false, datafield: 'id', hidden: true },
 			          { text: 'PROD NAME', datafield: 'name', width: "25%" },
-			          { text: 'PROD TYPE', datafield: 'typeId', width: "13%" },
+			          { text: 'PROD TYPE', datafield: 'typeDesc', width: "13%" },
+			          { text: 'TYPE ID', datafield: 'typeId', hidden: true },
 			          { text: 'PORDUCT DESC', datafield: 'desc', width: "13%" },
 			          { text: 'SHORT DESC', datafield: 'shortDesc', width: "13%" },
 			          { text: 'UNIT', datafield: 'unit', width: "8%" },

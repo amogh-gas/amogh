@@ -12,13 +12,15 @@
       <result property="shortDesc" column="SHORT_DESC" />
       <result property="unit" column="UNIT" />
       <result property="under" column="UNDER" />
-      <result property="tariffCode" column="TARIFF_CODE" />      
+      <result property="tariffCode" column="TARIFF_CODE" />
+      <result property="productType.id" column="PROD_TYPE_ID" />
+      <result property="productType.nodeDesc" column="TYPE_DESC" />      
    </resultMap>
 	
    <select id="getProducts" parameterType="productParams" resultMap="resultResources"
       useCache="true">
-      SELECT SQL_CALC_FOUND_ROWS * FROM 
-		PRODUCT ORDER BY PROD_ID DESC LIMIT #{firstRow}, #{lastRow}     
+      select SQL_CALC_FOUND_ROWS pr.*, pt.TYPE_DESC from product pr join product_type pt on pt.TYPE_ID = pr.PROD_TYPE_ID
+		ORDER BY pr.PROD_ID DESC LIMIT #{firstRow}, #{lastRow}     
    </select>
    
    <select id="countTotalProducts" parameterType="productParams" resultType="java.lang.Long"
