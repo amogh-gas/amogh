@@ -45,3 +45,11 @@ p.mainMenuId {
 .jqx-widget-content-hover-energyblue{font-size: 12px; font-family: Georgia, "Times New Roman", Times, serif;color:balck; }
 .jqx-widget-header-hover-energyblue{font-size: 12px; font-family: Georgia, "Times New Roman", Times, serif;color:balck;}
 .jqx-fill-state-normal-hover-energyblue, .jqx-fill-state-hover-energyblue, .jqx-fill-state-pressed-hover-energyblue{font-size: 12px; font-family: Georgia, "Times New Roman", Times, serif; }
+span[class*="req"] {
+  display:inline;
+  float:right;
+  color:red !important;
+  font-weight:bold;
+  margin:0;
+  padding:0;
+}

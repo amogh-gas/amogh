@@ -106,3 +106,10 @@ $(function () {
     });
 });
 /** Numeric Validation **/
+
+$(document).ready(function() {
+	$('.required').each(function(){
+		$(this).wrap($('<span>').attr({style: "float:left"}));
+		$('<span>').attr({class: "req"}).text('*').insertAfter($(this).parent());
+	});
+});
